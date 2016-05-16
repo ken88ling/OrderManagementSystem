@@ -1,0 +1,10 @@
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\bin\Debug\Model.dll.config
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\bin\Debug\Model.dll
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\bin\Debug\Model.pdb
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\bin\Debug\EntityFramework.dll
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\bin\Debug\EntityFramework.xml
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\obj\Debug\Model.dll
+C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\Model\obj\Debug\Model.pdb

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrderManagementDBModelStoreContainer" CdmEntityContainer="OrderManagementDBEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Region_RegionId" ColumnName="Region_RegionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventories">
+          <ScalarProperty Name="InventoryId" ColumnName="InventoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Employee_EmployeeId" ColumnName="Employee_EmployeeId" />
+          <ScalarProperty Name="StoreLocation_StoreLocationId" ColumnName="StoreLocation_StoreLocationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineItems">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.LineItem">
+        <MappingFragment StoreEntitySet="LineItems">
+          <ScalarProperty Name="LineItemId" ColumnName="LineItemId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Product_ProductId" ColumnName="Product_ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Customer_CustomerId" ColumnName="Customer_CustomerId" />
+          <ScalarProperty Name="LineItem_LineItemId" ColumnName="LineItem_LineItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderTransactions">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.OrderTransaction">
+        <MappingFragment StoreEntitySet="OrderTransactions">
+          <ScalarProperty Name="OrderTransactionId" ColumnName="OrderTransactionId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Employee_EmployeeId" ColumnName="Employee_EmployeeId" />
+          <ScalarProperty Name="Inventory_InventoryId" ColumnName="Inventory_InventoryId" />
+          <ScalarProperty Name="Product_ProductId" ColumnName="Product_ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Vendor_VendorId" ColumnName="Vendor_VendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.Region">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoreLocations">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.StoreLocation">
+        <MappingFragment StoreEntitySet="StoreLocations">
+          <ScalarProperty Name="StoreLocationId" ColumnName="StoreLocationId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="OrderManagementDBModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendors">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

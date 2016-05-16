@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c9833b18d1e4ff29d065f1738b0a650" Name="Diagram1">
+        <EntityTypeShape EntityType="OrderManagementDBModel.Customer" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.Employee" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.Inventory" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.LineItem" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.Order" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.OrderTransaction" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.Product" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.Region" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.StoreLocation" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderManagementDBModel.Vendor" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_Customers_dbo_Regions_Region_RegionId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_Orders_dbo_Customers_Customer_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_LineItems_dbo_Products_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_OrderTransactions_dbo_Products_Product_ProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderManagementDBModel.FK_dbo_Products_dbo_Vendors_Vendor_VendorId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

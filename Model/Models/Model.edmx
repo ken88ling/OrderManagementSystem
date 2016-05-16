@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrderManagementDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Region_RegionId" Type="int" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Inventories">
+          <Key>
+            <PropertyRef Name="InventoryId" />
+          </Key>
+          <Property Name="InventoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Employee_EmployeeId" Type="int" />
+          <Property Name="StoreLocation_StoreLocationId" Type="int" />
+        </EntityType>
+        <EntityType Name="LineItems">
+          <Key>
+            <PropertyRef Name="LineItemId" />
+          </Key>
+          <Property Name="LineItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Product_ProductId" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Customer_CustomerId" Type="int" />
+          <Property Name="LineItem_LineItemId" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderTransactions">
+          <Key>
+            <PropertyRef Name="OrderTransactionId" />
+          </Key>
+          <Property Name="OrderTransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Employee_EmployeeId" Type="int" />
+          <Property Name="Inventory_InventoryId" Type="int" />
+          <Property Name="Product_ProductId" Type="int" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Vendor_VendorId" Type="int" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="RegionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="StoreLocations">
+          <Key>
+            <PropertyRef Name="StoreLocationId" />
+          </Key>
+          <Property Name="StoreLocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Vendors">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_Customers_dbo_Regions_Region_RegionId">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="Region_RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Inventories" Type="Self.Inventories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="Inventories">
+              <PropertyRef Name="Employee_EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId">
+          <End Role="StoreLocations" Type="Self.StoreLocations" Multiplicity="0..1" />
+          <End Role="Inventories" Type="Self.Inventories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoreLocations">
+              <PropertyRef Name="StoreLocationId" />
+            </Principal>
+            <Dependent Role="Inventories">
+              <PropertyRef Name="StoreLocation_StoreLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LineItems_dbo_Products_Product_ProductId">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="LineItems" Type="Self.LineItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="LineItems">
+              <PropertyRef Name="Product_ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Orders_dbo_Customers_Customer_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Customer_CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId">
+          <End Role="LineItems" Type="Self.LineItems" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LineItems">
+              <PropertyRef Name="LineItemId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="LineItem_LineItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="OrderTransactions" Type="Self.OrderTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="OrderTransactions">
+              <PropertyRef Name="Employee_EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId">
+          <End Role="Inventories" Type="Self.Inventories" Multiplicity="0..1" />
+          <End Role="OrderTransactions" Type="Self.OrderTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventories">
+              <PropertyRef Name="InventoryId" />
+            </Principal>
+            <Dependent Role="OrderTransactions">
+              <PropertyRef Name="Inventory_InventoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderTransactions_dbo_Products_Product_ProductId">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="OrderTransactions" Type="Self.OrderTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="OrderTransactions">
+              <PropertyRef Name="Product_ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Products_dbo_Vendors_Vendor_VendorId">
+          <End Role="Vendors" Type="Self.Vendors" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendors">
+              <PropertyRef Name="VendorId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Vendor_VendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OrderManagementDBModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventories" EntityType="Self.Inventories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LineItems" EntityType="Self.LineItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderTransactions" EntityType="Self.OrderTransactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StoreLocations" EntityType="Self.StoreLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendors" EntityType="Self.Vendors" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Customers_dbo_Regions_Region_RegionId" Association="Self.FK_dbo_Customers_dbo_Regions_Region_RegionId">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId" Association="Self.FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Inventories" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId" Association="Self.FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId">
+            <End Role="StoreLocations" EntitySet="StoreLocations" />
+            <End Role="Inventories" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LineItems_dbo_Products_Product_ProductId" Association="Self.FK_dbo_LineItems_dbo_Products_Product_ProductId">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="LineItems" EntitySet="LineItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Orders_dbo_Customers_Customer_CustomerId" Association="Self.FK_dbo_Orders_dbo_Customers_Customer_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId" Association="Self.FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId">
+            <End Role="LineItems" EntitySet="LineItems" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId" Association="Self.FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="OrderTransactions" EntitySet="OrderTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId" Association="Self.FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId">
+            <End Role="Inventories" EntitySet="Inventories" />
+            <End Role="OrderTransactions" EntitySet="OrderTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderTransactions_dbo_Products_Product_ProductId" Association="Self.FK_dbo_OrderTransactions_dbo_Products_Product_ProductId">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderTransactions" EntitySet="OrderTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Products_dbo_Vendors_Vendor_VendorId" Association="Self.FK_dbo_Products_dbo_Vendors_Vendor_VendorId">
+            <End Role="Vendors" EntitySet="Vendors" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrderManagementDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region_RegionId" Type="Int32" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_dbo_Customers_dbo_Regions_Region_RegionId" FromRole="Customers" ToRole="Regions" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_dbo_Orders_dbo_Customers_Customer_CustomerId" FromRole="Customers" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Inventories" Relationship="Self.FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId" FromRole="Employees" ToRole="Inventories" />
+          <NavigationProperty Name="OrderTransactions" Relationship="Self.FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId" FromRole="Employees" ToRole="OrderTransactions" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="InventoryId" />
+          </Key>
+          <Property Name="InventoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_EmployeeId" Type="Int32" />
+          <Property Name="StoreLocation_StoreLocationId" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId" FromRole="Inventories" ToRole="Employees" />
+          <NavigationProperty Name="StoreLocation" Relationship="Self.FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId" FromRole="Inventories" ToRole="StoreLocations" />
+          <NavigationProperty Name="OrderTransactions" Relationship="Self.FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId" FromRole="Inventories" ToRole="OrderTransactions" />
+        </EntityType>
+        <EntityType Name="LineItem">
+          <Key>
+            <PropertyRef Name="LineItemId" />
+          </Key>
+          <Property Name="LineItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Product_ProductId" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_dbo_LineItems_dbo_Products_Product_ProductId" FromRole="LineItems" ToRole="Products" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId" FromRole="LineItems" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_CustomerId" Type="Int32" />
+          <Property Name="LineItem_LineItemId" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Orders_dbo_Customers_Customer_CustomerId" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="LineItem" Relationship="Self.FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId" FromRole="Orders" ToRole="LineItems" />
+        </EntityType>
+        <EntityType Name="OrderTransaction">
+          <Key>
+            <PropertyRef Name="OrderTransactionId" />
+          </Key>
+          <Property Name="OrderTransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_EmployeeId" Type="Int32" />
+          <Property Name="Inventory_InventoryId" Type="Int32" />
+          <Property Name="Product_ProductId" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId" FromRole="OrderTransactions" ToRole="Employees" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId" FromRole="OrderTransactions" ToRole="Inventories" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_dbo_OrderTransactions_dbo_Products_Product_ProductId" FromRole="OrderTransactions" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vendor_VendorId" Type="Int32" />
+          <NavigationProperty Name="LineItems" Relationship="Self.FK_dbo_LineItems_dbo_Products_Product_ProductId" FromRole="Products" ToRole="LineItems" />
+          <NavigationProperty Name="OrderTransactions" Relationship="Self.FK_dbo_OrderTransactions_dbo_Products_Product_ProductId" FromRole="Products" ToRole="OrderTransactions" />
+          <NavigationProperty Name="Vendor" Relationship="Self.FK_dbo_Products_dbo_Vendors_Vendor_VendorId" FromRole="Products" ToRole="Vendors" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="RegionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_dbo_Customers_dbo_Regions_Region_RegionId" FromRole="Regions" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="StoreLocation">
+          <Key>
+            <PropertyRef Name="StoreLocationId" />
+          </Key>
+          <Property Name="StoreLocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Inventories" Relationship="Self.FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId" FromRole="StoreLocations" ToRole="Inventories" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_dbo_Products_dbo_Vendors_Vendor_VendorId" FromRole="Vendors" ToRole="Products" />
+        </EntityType>
+        <Association Name="FK_dbo_Customers_dbo_Regions_Region_RegionId">
+          <End Role="Regions" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="Region_RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Orders_dbo_Customers_Customer_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Customer_CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Inventories" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="Inventories">
+              <PropertyRef Name="Employee_EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="OrderTransactions" Type="Self.OrderTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="OrderTransactions">
+              <PropertyRef Name="Employee_EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId">
+          <End Role="StoreLocations" Type="Self.StoreLocation" Multiplicity="0..1" />
+          <End Role="Inventories" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StoreLocations">
+              <PropertyRef Name="StoreLocationId" />
+            </Principal>
+            <Dependent Role="Inventories">
+              <PropertyRef Name="StoreLocation_StoreLocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId">
+          <End Role="Inventories" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="OrderTransactions" Type="Self.OrderTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventories">
+              <PropertyRef Name="InventoryId" />
+            </Principal>
+            <Dependent Role="OrderTransactions">
+              <PropertyRef Name="Inventory_InventoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LineItems_dbo_Products_Product_ProductId">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="LineItems" Type="Self.LineItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="LineItems">
+              <PropertyRef Name="Product_ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId">
+          <End Role="LineItems" Type="Self.LineItem" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LineItems">
+              <PropertyRef Name="LineItemId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="LineItem_LineItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderTransactions_dbo_Products_Product_ProductId">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="OrderTransactions" Type="Self.OrderTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="OrderTransactions">
+              <PropertyRef Name="Product_ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Products_dbo_Vendors_Vendor_VendorId">
+          <End Role="Vendors" Type="Self.Vendor" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendors">
+              <PropertyRef Name="VendorId" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Vendor_VendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OrderManagementDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Inventories" EntityType="Self.Inventory" />
+          <EntitySet Name="LineItems" EntityType="Self.LineItem" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderTransactions" EntityType="Self.OrderTransaction" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Regions" EntityType="Self.Region" />
+          <EntitySet Name="StoreLocations" EntityType="Self.StoreLocation" />
+          <EntitySet Name="Vendors" EntityType="Self.Vendor" />
+          <AssociationSet Name="FK_dbo_Customers_dbo_Regions_Region_RegionId" Association="Self.FK_dbo_Customers_dbo_Regions_Region_RegionId">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Orders_dbo_Customers_Customer_CustomerId" Association="Self.FK_dbo_Orders_dbo_Customers_Customer_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId" Association="Self.FK_dbo_Inventories_dbo_Employees_Employee_EmployeeId">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Inventories" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId" Association="Self.FK_dbo_OrderTransactions_dbo_Employees_Employee_EmployeeId">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="OrderTransactions" EntitySet="OrderTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId" Association="Self.FK_dbo_Inventories_dbo_StoreLocations_StoreLocation_StoreLocationId">
+            <End Role="StoreLocations" EntitySet="StoreLocations" />
+            <End Role="Inventories" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId" Association="Self.FK_dbo_OrderTransactions_dbo_Inventories_Inventory_InventoryId">
+            <End Role="Inventories" EntitySet="Inventories" />
+            <End Role="OrderTransactions" EntitySet="OrderTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LineItems_dbo_Products_Product_ProductId" Association="Self.FK_dbo_LineItems_dbo_Products_Product_ProductId">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="LineItems" EntitySet="LineItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId" Association="Self.FK_dbo_Orders_dbo_LineItems_LineItem_LineItemId">
+            <End Role="LineItems" EntitySet="LineItems" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderTransactions_dbo_Products_Product_ProductId" Association="Self.FK_dbo_OrderTransactions_dbo_Products_Product_ProductId">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderTransactions" EntitySet="OrderTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Products_dbo_Vendors_Vendor_VendorId" Association="Self.FK_dbo_Products_dbo_Vendors_Vendor_VendorId">
+            <End Role="Vendors" EntitySet="Vendors" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrderManagementDBModelStoreContainer" CdmEntityContainer="OrderManagementDBEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Region_RegionId" ColumnName="Region_RegionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventories">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventories">
+                <ScalarProperty Name="InventoryId" ColumnName="InventoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Employee_EmployeeId" ColumnName="Employee_EmployeeId" />
+                <ScalarProperty Name="StoreLocation_StoreLocationId" ColumnName="StoreLocation_StoreLocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LineItems">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.LineItem">
+              <MappingFragment StoreEntitySet="LineItems">
+                <ScalarProperty Name="LineItemId" ColumnName="LineItemId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Product_ProductId" ColumnName="Product_ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Customer_CustomerId" ColumnName="Customer_CustomerId" />
+                <ScalarProperty Name="LineItem_LineItemId" ColumnName="LineItem_LineItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderTransactions">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.OrderTransaction">
+              <MappingFragment StoreEntitySet="OrderTransactions">
+                <ScalarProperty Name="OrderTransactionId" ColumnName="OrderTransactionId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Employee_EmployeeId" ColumnName="Employee_EmployeeId" />
+                <ScalarProperty Name="Inventory_InventoryId" ColumnName="Inventory_InventoryId" />
+                <ScalarProperty Name="Product_ProductId" ColumnName="Product_ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Vendor_VendorId" ColumnName="Vendor_VendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.Region">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreLocations">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.StoreLocation">
+              <MappingFragment StoreEntitySet="StoreLocations">
+                <ScalarProperty Name="StoreLocationId" ColumnName="StoreLocationId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="OrderManagementDBModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendors">
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

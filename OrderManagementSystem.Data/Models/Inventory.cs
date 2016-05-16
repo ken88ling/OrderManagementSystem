@@ -11,7 +11,7 @@ namespace OrderManagementSystem.Data.Models
         public int InventoryId { get; set; }
         public string Name { get; set; }
 
-        public virtual StoreLocation StoreLocation { get; set; }
+        public virtual WareHouse StoreLocation { get; set; }
         public virtual Employee Employee { get; set; }        
 
     }
