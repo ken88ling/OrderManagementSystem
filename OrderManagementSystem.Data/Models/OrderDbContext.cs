@@ -11,6 +11,7 @@ namespace OrderManagementSystem.Data.Models
 {
     public class OrderDbContext : DbContext
     {
+        public DbSet<Person> Person { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SaleLineItem> SaleLineItems { get; set; }

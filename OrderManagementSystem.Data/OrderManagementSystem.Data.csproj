@@ -49,9 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201605170227482_initialCreate.cs" />
-    <Compile Include="Migrations\201605170227482_initialCreate.Designer.cs">
-      <DependentUpon>201605170227482_initialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201605171224465_tblPerson.cs" />
+    <Compile Include="Migrations\201605171224465_tblPerson.Designer.cs">
+      <DependentUpon>201605171224465_tblPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -81,8 +81,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605170227482_initialCreate.resx">
-      <DependentUpon>201605170227482_initialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605171224465_tblPerson.resx">
+      <DependentUpon>201605171224465_tblPerson.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

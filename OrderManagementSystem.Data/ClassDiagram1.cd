@@ -21,17 +21,10 @@
       <FileName>Models\Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OrderManagementSystem.Data.Models.LineItem" Collapsed="true">
-    <Position X="3.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\LineItem.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="OrderManagementSystem.Data.Models.Product" Collapsed="true">
     <Position X="5.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAQAgAgAAAAAAAAAAAAAABABAAAAAAAAICAA=</HashCode>
       <FileName>Models\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,14 +38,14 @@
   <Class Name="OrderManagementSystem.Data.Models.Sale">
     <Position X="3.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAIAAAAAEAAAAABAAAAAAAAAAEAA=</HashCode>
       <FileName>Models\Sale.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OrderManagementSystem.Data.Models.SaleLedger">
     <Position X="5.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAgAAAAAAAACAAAAAAAAAAAAgAAEAA=</HashCode>
+      <HashCode>AAACAIAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
       <FileName>Models\SaleLedger.cs</FileName>
     </TypeIdentifier>
   </Class>
