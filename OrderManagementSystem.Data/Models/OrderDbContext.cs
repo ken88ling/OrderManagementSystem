@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrderManagementSystem.Data.Models.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -8,22 +9,26 @@ using System.Threading.Tasks;
 
 namespace OrderManagementSystem.Data.Models
 {
-    public class OrderManagementDbContext : DbContext
+    public class OrderDbContext : DbContext
     {
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<LineItem> LineItems { get; set; }
         public DbSet<Sale> Sales { get; set; }
-        public DbSet<SaleLedger> SaleLedgers { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Region> Regions { get; set; }        
+        public DbSet<SaleLineItem> SaleLineItems { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<SaleLedger> SaleLedgers { get; set; }
+        public DbSet<Region> Regions { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<WareHouse> WareHouses { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Configurations.Add(new SaleLineItemMap());
         }
     }
 }

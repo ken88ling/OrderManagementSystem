@@ -49,24 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201605011428026_v1.cs" />
-    <Compile Include="Migrations\201605011428026_v1.Designer.cs">
-      <DependentUpon>201605011428026_v1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605011433258_v2.cs" />
-    <Compile Include="Migrations\201605011433258_v2.Designer.cs">
-      <DependentUpon>201605011433258_v2.cs</DependentUpon>
+    <Compile Include="Migrations\201605170227482_initialCreate.cs" />
+    <Compile Include="Migrations\201605170227482_initialCreate.Designer.cs">
+      <DependentUpon>201605170227482_initialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\LineItem.cs" />
+    <Compile Include="Models\Mapping\SaleLineItemMap.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Sale.cs" />
-    <Compile Include="Models\OrderManagementDbContext.cs" />
+    <Compile Include="Models\OrderDbContext.cs" />
     <Compile Include="Models\SaleLedger.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\SaleLineItem.cs" />
     <Compile Include="Models\WareHouse.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,19 +75,15 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605011428026_v1.resx">
-      <DependentUpon>201605011428026_v1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605011433258_v2.resx">
-      <DependentUpon>201605011433258_v2.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <EmbeddedResource Include="Migrations\201605170227482_initialCreate.resx">
+      <DependentUpon>201605170227482_initialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

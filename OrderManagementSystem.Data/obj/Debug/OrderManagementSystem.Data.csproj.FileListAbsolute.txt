@@ -24,3 +24,15 @@ C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSyst
 C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.dll
 C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.pdb
 C:\Users\YHLIN\OneDrive\Coding\Semester2\MVC-OrderManagement\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\OrderManagementSystem.Data.dll.config
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\OrderManagementSystem.Data.dll
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\OrderManagementSystem.Data.pdb
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.xml
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.dll
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.pdb
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.initialCreate.resources
+C:\Users\user\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csproj.GenerateResource.Cache

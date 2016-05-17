@@ -1,17 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="OrderManagementSystem.Data.Models.Customer">
-    <Position X="5" Y="2" Width="1.5" />
+  <Class Name="OrderManagementSystem.Data.Models.Customer" Collapsed="true">
+    <Position X="4" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OrderManagementSystem.Data.Models.Employee">
-    <Position X="7.5" Y="2" Width="1.5" />
+  <Class Name="OrderManagementSystem.Data.Models.Employee" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Models\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagementSystem.Data.Models.Inventory" Collapsed="true">
+    <Position X="1.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAQACAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Models\Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagementSystem.Data.Models.LineItem" Collapsed="true">
+    <Position X="3.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\LineItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagementSystem.Data.Models.Product" Collapsed="true">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagementSystem.Data.Models.Region" Collapsed="true">
+    <Position X="1.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Region.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagementSystem.Data.Models.Sale">
+    <Position X="3.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Models\Sale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagementSystem.Data.Models.SaleLedger">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAAAAAACAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Models\SaleLedger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagementSystem.Data.Models.Vendor" Collapsed="true">
+    <Position X="1.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\Vendor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderManagementSystem.Data.Models.WareHouse" Collapsed="true">
+    <Position X="3.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\WareHouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
