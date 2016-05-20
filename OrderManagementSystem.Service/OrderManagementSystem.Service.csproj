@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B50B78B4-5F49-4EB3-A881-2D50EC49217D}</ProjectGuid>
+    <ProjectGuid>{319A70DF-873D-4359-BE7E-94D3F79CD8FA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OrderManagementSystem.Data</RootNamespace>
-    <AssemblyName>OrderManagementSystem.Data</AssemblyName>
+    <RootNamespace>OrderManagementSystem.Service</RootNamespace>
+    <AssemblyName>OrderManagementSystem.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,56 +49,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201605200121286_initial.cs" />
-    <Compile Include="Migrations\201605200121286_initial.Designer.cs">
-      <DependentUpon>201605200121286_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605200204414_add categories table.cs" />
-    <Compile Include="Migrations\201605200204414_add categories table.Designer.cs">
-      <DependentUpon>201605200204414_add categories table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605200242570_remove column customer%27s customerNo.cs" />
-    <Compile Include="Migrations\201605200242570_remove column customer%27s customerNo.Designer.cs">
-      <DependentUpon>201605200242570_remove column customer%27s customerNo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Gender.cs" />
-    <Compile Include="Models\Mapping\SaleLineItemMap.cs" />
-    <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Sale.cs" />
-    <Compile Include="Models\OrderDbContext.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Region.cs" />
-    <Compile Include="Models\Inventory.cs" />
-    <Compile Include="Models\SaleLineItem.cs" />
-    <Compile Include="Models\WareHouse.cs" />
-    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Order\CustomerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ClassDiagram1.cd" />
+    <ProjectReference Include="..\OrderManagementSystem.Data\OrderManagementSystem.Data.csproj">
+      <Project>{b50b78b4-5f49-4eb3-a881-2d50ec49217d}</Project>
+      <Name>OrderManagementSystem.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605200121286_initial.resx">
-      <DependentUpon>201605200121286_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605200204414_add categories table.resx">
-      <DependentUpon>201605200204414_add categories table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605200242570_remove column customer%27s customerNo.resx">
-      <DependentUpon>201605200242570_remove column customer%27s customerNo.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

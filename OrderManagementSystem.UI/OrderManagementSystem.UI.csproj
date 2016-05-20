@@ -156,6 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -201,8 +202,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -216,6 +217,10 @@
     <ProjectReference Include="..\OrderManagementSystem.Data\OrderManagementSystem.Data.csproj">
       <Project>{b50b78b4-5f49-4eb3-a881-2d50ec49217d}</Project>
       <Name>OrderManagementSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderManagementSystem.Service\OrderManagementSystem.Service.csproj">
+      <Project>{319a70df-873d-4359-be7e-94d3f79cd8fa}</Project>
+      <Name>OrderManagementSystem.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

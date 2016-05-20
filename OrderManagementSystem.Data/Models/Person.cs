@@ -30,7 +30,12 @@ namespace OrderManagementSystem.Data.Models
         public DateTime? DateOfBirth { get; set; }
 
         public string Gender { get; set; }
+        [Display(Name ="Phone No")]
         public string PhoneNo { get; set; }
-        public string Address { get; set; }
+        [Display(Name ="")]
+        public string StreetAddress { get; set; }
+        public string Suburb { get; set; }
+        public string State { get; set; }
+        public string Postcode { get; set; }
     }
 }

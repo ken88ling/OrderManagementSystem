@@ -23,6 +23,8 @@ namespace OrderManagementSystem.Data.Models
         public DbSet<WareHouse> WareHouses { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

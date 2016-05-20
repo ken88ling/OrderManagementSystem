@@ -4,6 +4,7 @@ namespace OrderManagementSystem.Data.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using OrderManagementSystem.Data.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<OrderManagementSystem.Data.Models.OrderDbContext>
     {
@@ -26,6 +27,18 @@ namespace OrderManagementSystem.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.WareHouses.AddOrUpdate(
+                w => w.Name,
+                new WareHouse() { Name = "Sydney WareHouse" },
+                new WareHouse() { Name = "Melbourne WareHouse" });
+
+            context.Categories.AddOrUpdate(
+                c => c.CategoryId,
+                new Category() { Description = "Clother" },
+                new Category() { Description = "Electronics" },
+                new Category() { Description = "Lights" },
+                new Category() { Description = "Bags" });
         }
     }
 }
