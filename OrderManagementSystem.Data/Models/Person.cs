@@ -21,8 +21,7 @@ namespace OrderManagementSystem.Data.Models
         [Display(Name = "Last Name")]
         [StringLength(50,ErrorMessage ="Last Name can't be longer than 50 characters")]
         public string LastName { get; set; }
-
-
+        
         public string MiddleName { get; set; }
 
         [DataType(DataType.Date)]
@@ -30,6 +29,7 @@ namespace OrderManagementSystem.Data.Models
         [Display(Name ="Date of Birth")]
         public DateTime? DateOfBirth { get; set; }
 
+        public string Gender { get; set; }
         public string PhoneNo { get; set; }
         public string Address { get; set; }
     }

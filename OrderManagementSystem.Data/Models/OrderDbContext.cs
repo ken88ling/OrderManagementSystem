@@ -18,8 +18,7 @@ namespace OrderManagementSystem.Data.Models
 
         public DbSet<Customer> Customers { get; set; }
 
-        public DbSet<SaleLedger> SaleLedgers { get; set; }
-        public DbSet<Region> Regions { get; set; }
+        //public DbSet<Region> Regions { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<WareHouse> WareHouses { get; set; }
         public DbSet<Vendor> Vendors { get; set; }

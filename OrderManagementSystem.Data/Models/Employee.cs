@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace OrderManagementSystem.Data.Models
 {
-    [Table("Employee")]
     public class Employee : Person
     {
-        //public int EmployeeId { get; set; }
+        // not need to Id because use person id already, 
+        //it will create discriminator automatics
+
         public string EmployeeNo { get; set; }
-
-
+        public DateTime? DateTime { get; set; }
     }
 }
