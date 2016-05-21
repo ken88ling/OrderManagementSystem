@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace OrderManagementSystem.Data.Models
 {
-    //[Table("Customer")]
+    [Table("Customer")]
     public class Customer : Person
     {
         // no need to put Id, because get from person
-        //public int CustomerNo { get; set; }
+        
         public string UserName { get; set; }
         public string Password { get; set; }
     }

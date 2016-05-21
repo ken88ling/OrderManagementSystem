@@ -15,33 +15,33 @@ namespace OrderManagementSystem.Service.Order
             _context = context;
         }
 
-        public Customer CreateUser(string userName, string password)
-        {
-            var customer = new Customer()
-            {
-                UserName = userName,
-                Password = password
-            };
+        //public Customer CreateUser(string userName, string password)
+        //{
+        //    var customer = new Customer()
+        //    {
+        //        UserName = userName,
+        //        Password = password
+        //    };
 
-            var result = _context.Customers.FirstOrDefault(
-                c => c.UserName == userName);
-            if(result != null)
-            {
-                throw new InvalidOperationException(
-                    String.Format("{0} already exists!", userName));
-            }
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
-            return customer;
-        }
+        //    var result = _context.Customers.FirstOrDefault(
+        //        c => c.UserName == userName);
+        //    if(result != null)
+        //    {
+        //        throw new InvalidOperationException(
+        //            String.Format("{0} already exists!", userName));
+        //    }
+        //    _context.Customers.Add(customer);
+        //    _context.SaveChanges();
+        //    return customer;
+        //}
 
-        public Customer CreateCustomer(string userName,string Password, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
+        public Customer CreateCustomer(string userName,string password, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
             string gender = null, string phoneNo = null, string streetAddress = null,string postCode=null, string suburb = null, string state =null)
         {
             var customer = new Customer
             {
                 UserName = userName,
-                Password = Password,
+                Password = password,
                 DateOfBirth = dateofBirth,
                 FirstName = firstName,
                 LastName = lastName,
@@ -49,12 +49,13 @@ namespace OrderManagementSystem.Service.Order
                 Gender = gender,
                 PhoneNo = phoneNo,
                 StreetAddress = streetAddress,
-                Postcode = postCode,
+                PostCode = postCode,
                 Suburb = suburb,
                 State = state
             };
 
-            if(customer == null)
+           
+            if (customer == null)
             {
                 throw new InvalidOperationException("No customer with provided id was found");
             }
@@ -80,9 +81,13 @@ namespace OrderManagementSystem.Service.Order
             customer.Gender = gender;
             customer.PhoneNo = phoneNo;
             customer.StreetAddress = streetAddress;
-            customer.Postcode = postCode;
+            customer.PostCode = postCode;
             customer.Suburb = suburb;
             customer.State = state;
+
+            //customer.FirstName = firstName;
+            //customer.LastName = lastName;
+            //customer.MiddleName = middleName;
 
             _context.SaveChanges();
             return customer;

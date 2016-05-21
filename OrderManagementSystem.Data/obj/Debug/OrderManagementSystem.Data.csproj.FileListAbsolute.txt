@@ -56,8 +56,6 @@ C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.D
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.dll
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.pdb
-C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.initial.resources
-C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csproj.GenerateResource.Cache
-C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.addcategoriestable.resources
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
-C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.removecolumncustomerscustomerNo.resources
+C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.initialCreate.resources
+C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csproj.GenerateResource.Cache
