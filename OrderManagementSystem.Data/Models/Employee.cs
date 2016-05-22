@@ -13,6 +13,7 @@ namespace OrderManagementSystem.Data.Models
         //it will create discriminator automatics
 
         public string EmployeeNo { get; set; }
-        public DateTime? DateTime { get; set; }
+        public DateTime? HireDate { get; set; }
+
     }
 }

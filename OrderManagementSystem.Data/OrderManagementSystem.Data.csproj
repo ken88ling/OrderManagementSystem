@@ -49,15 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201605211216230_initial Create.cs" />
-    <Compile Include="Migrations\201605211216230_initial Create.Designer.cs">
-      <DependentUpon>201605211216230_initial Create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\Mapping\SaleLineItemMap.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Sale.cs" />
@@ -79,11 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605211216230_initial Create.resx">
-      <DependentUpon>201605211216230_initial Create.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,33 +15,37 @@ namespace OrderManagementSystem.Service.Order
             _context = context;
         }
 
-        //public Customer CreateUser(string userName, string password)
-        //{
-        //    var customer = new Customer()
-        //    {
-        //        UserName = userName,
-        //        Password = password
-        //    };
+        public Customer CreateUser(string customerCode, string password)
+        {
+            var customer = new Customer()
+            {
+                //CustomerCode = customerCode,
+                //Password = password
+            };
 
-        //    var result = _context.Customers.FirstOrDefault(
-        //        c => c.UserName == userName);
-        //    if(result != null)
-        //    {
-        //        throw new InvalidOperationException(
-        //            String.Format("{0} already exists!", userName));
-        //    }
-        //    _context.Customers.Add(customer);
-        //    _context.SaveChanges();
-        //    return customer;
-        //}
-
-        public Customer CreateCustomer(string userName,string password, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
+            var result = _context.Customers.FirstOrDefault(
+                c => c.CustomerCode == customerCode);
+            if (result != null)
+            {
+                throw new InvalidOperationException(
+                    String.Format("{0} already exists!", customerCode));
+            }
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return customer;
+        }
+        public void InsertCustomer(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+        }
+        public Customer CreateCustomer(string customerCode, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
             string gender = null, string phoneNo = null, string streetAddress = null,string postCode=null, string suburb = null, string state =null)
         {
-            var customer = new Customer
+            var customer = new Customer()
             {
-                UserName = userName,
-                Password = password,
+                CustomerCode = customerCode,
+                
                 DateOfBirth = dateofBirth,
                 FirstName = firstName,
                 LastName = lastName,
@@ -52,6 +56,7 @@ namespace OrderManagementSystem.Service.Order
                 PostCode = postCode,
                 Suburb = suburb,
                 State = state
+                
             };
 
            

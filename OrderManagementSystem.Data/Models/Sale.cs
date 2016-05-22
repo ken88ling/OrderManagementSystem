@@ -17,6 +17,7 @@ namespace OrderManagementSystem.Data.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:mm/dd/yyyy}")]
         public DateTime? PurchaseDate { get; set; }
+
         
         public Customer Customer { get; set; }
         public ICollection<SaleLineItem> SaleLineItemlist { get; set; }

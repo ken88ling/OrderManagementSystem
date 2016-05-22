@@ -27,7 +27,7 @@ namespace OrderManagementSystem.UI.Controllers
                 .Select(c => new CustomerIndexViewModel()
                 {
                     Id = c.Id,
-                    UserName = c.UserName,
+                    UserName = c.CustomerCode,
                     FullName = c.FirstName + " " + c.MiddleName + " " + c.LastName,
                     DateOfBirth = c.DateOfBirth,
                     FullAddress = c.StreetAddress + " " + c.Suburb + " " + c.PostCode + " " + c.State
@@ -50,7 +50,9 @@ namespace OrderManagementSystem.UI.Controllers
             {
                 try
                 {
-                    var customer = _customerService.CreateCustomer(model.FirstName,model.Password,
+
+                    var customer = _customerService.CreateCustomer(
+                       model.CustomerCode,                       
                        model.DateOfBirth,
                        model.FirstName,
                        model.LastName,
@@ -61,12 +63,13 @@ namespace OrderManagementSystem.UI.Controllers
                        model.PostCode,
                        model.Suburb,
                        model.State);
+
                     return RedirectToAction("Index");
                 }
                 catch (Exception)
                 {
-
                     throw;
+                    //ModelState.AddModelError("", ex);
                 }
             }
             return View(model);
@@ -88,7 +91,7 @@ namespace OrderManagementSystem.UI.Controllers
 
             var model = new CustomerEditViewModel()
             {
-
+                Id = customer.Id,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
                 MiddleName = customer.MiddleName,
@@ -142,8 +145,8 @@ namespace OrderManagementSystem.UI.Controllers
 
             var model = new CustomerIndexViewModel()
             {
-                Id = customer.Id,
-                UserName = customer.UserName,
+                //Id = customer.Id,
+                UserName = customer.CustomerCode,
                 FullName = customer.FirstName + " " + customer.MiddleName + " " + customer.LastName,
                 DateOfBirth = customer.DateOfBirth,
                 FullAddress = String.Format("{0} {1} {2} {3}", customer.StreetAddress, customer.Suburb, customer.State, customer.PostCode)
@@ -173,7 +176,7 @@ namespace OrderManagementSystem.UI.Controllers
             var model = new CustomerIndexViewModel()
             {
                 Id = customer.Id,
-                UserName = customer.UserName,
+                UserName = customer.CustomerCode,
                 FullName = customer.FirstName + " " + customer.LastName,
                 DateOfBirth = customer.DateOfBirth,
                 FullAddress = customer.StreetAddress + " " + customer.Suburb,

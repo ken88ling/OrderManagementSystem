@@ -31,6 +31,37 @@ namespace OrderManagementSystem.Data.Models
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new SaleLineItemMap());
+
+            //modelBuilder.Entity<Customer>()
+            //    .Map(map =>
+            //        {
+            //            map.Properties(p => new
+            //            {
+            //                p.Id,
+            //                p.FirstName,
+            //                p.LastName,
+            //                p.MiddleName,
+            //                p.DateOfBirth,
+            //                p.Gender,
+            //                p.PhoneNo,
+            //                p.StreetAddress,
+            //                p.Suburb,
+            //                p.State,
+            //                p.PostCode
+            //            });
+            //            map.ToTable("Person");
+            //        })
+            //        .Map(map =>
+            //        {
+            //            map.Properties(p => new
+            //            {
+            //                p.UserName,
+            //                p.Password
+            //            });
+            //            map.ToTable("Customer");
+            //        });
+
+
         }
     }
 }

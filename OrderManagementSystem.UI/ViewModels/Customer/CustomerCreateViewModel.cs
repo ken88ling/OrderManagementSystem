@@ -9,9 +9,9 @@ namespace OrderManagementSystem.UI.ViewModels.Customer
     public class CustomerCreateViewModel
     {
 
-        [Display(Name = "User Name")]
-        public string UserName { get; set; }        
-        public string Password { get; set; }
+        [Display(Name = "Customer Code")]
+        public string CustomerCode { get; set; }        
+        //public string Password { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -28,8 +28,8 @@ namespace OrderManagementSystem.UI.ViewModels.Customer
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Birth")]
         public DateTime? DateOfBirth { get; set; }
-        public string Gender { get; set; }
 
+        public string Gender { get; set; }
         [Display(Name = "Phone No")]
         public string PhoneNo { get; set; }
         [Display(Name = "Street Address")]
@@ -37,6 +37,5 @@ namespace OrderManagementSystem.UI.ViewModels.Customer
         public string Suburb { get; set; }
         public string State { get; set; }
         public string PostCode { get; set; }
-
     }
 }
