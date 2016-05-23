@@ -16,6 +16,10 @@ namespace OrderManagementSystem.UI.ViewModels.Customer
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date of Birth")]        
         public DateTime? DateOfBirth { get; set; }
         public string Gender { get; set; }
         public string PhoneNo { get; set; }

@@ -145,7 +145,7 @@ namespace OrderManagementSystem.UI.Controllers
 
             var model = new CustomerIndexViewModel()
             {
-                //Id = customer.Id,
+                Id = customer.Id,
                 UserName = customer.CustomerCode,
                 FullName = customer.FirstName + " " + customer.MiddleName + " " + customer.LastName,
                 DateOfBirth = customer.DateOfBirth,
