@@ -25,7 +25,7 @@ namespace OrderManagementSystem.UI.ViewModels.Customer
         public string MiddleName { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Birth")]
         public DateTime? DateOfBirth { get; set; }
 

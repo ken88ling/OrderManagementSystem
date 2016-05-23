@@ -81,9 +81,8 @@ namespace OrderManagementSystem.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-
-            var customer = _context.Customers.Find(id);
+            
+            var customer = _context.Customers.FirstOrDefault(s => s.Id == id);
             if (customer == null)
             {
                 return HttpNotFound();

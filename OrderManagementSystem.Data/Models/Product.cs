@@ -15,10 +15,8 @@ namespace OrderManagementSystem.Data.Models
         public decimal Price { get; set; }
 
         //supplier
-        public virtual Vendor Vendor { get; set; }
+        public Vendor Vendor { get; set; }
         public Category Category { get; set; }
-
-        public ICollection<SaleLineItem> SaleLineItemList { get; set; }
-
+        public IList<Sale> Sales { get; set; }
     }
 }

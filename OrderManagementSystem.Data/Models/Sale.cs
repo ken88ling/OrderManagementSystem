@@ -12,14 +12,23 @@ namespace OrderManagementSystem.Data.Models
         //it is order 
 
         public int SaleId { get; set; }
-        public int CustomerId { get; set; }
-
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:mm/dd/yyyy}")]
+        public int CustomerId { get; set; }        
         public DateTime? PurchaseDate { get; set; }
 
-        
         public Customer Customer { get; set; }
-        public ICollection<SaleLineItem> SaleLineItemlist { get; set; }
+        public IList<Product> Products { get; set; }
+
     }
 }
+
+//IList
+//IsFixedSize Property
+//IsReadOnly Property
+//Indexer
+//Add Method
+//Clear Method
+//Contains Method
+//Indexof Method
+//Insert Method
+//Remove Method
+//RemoveAt Method
