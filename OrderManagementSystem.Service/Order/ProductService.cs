@@ -15,9 +15,9 @@ namespace OrderManagementSystem.Service.Order
             _context = context;
         }
 
-        public Product CreateProduct(int categoryId, string productName,string description, decimal price, string vendorId )
-        {
+        //public Product CreateProduct(int categoryId, string productName,string description, decimal price, string vendorId )
+        //{
             
-        }
+        //}
     }
 }
