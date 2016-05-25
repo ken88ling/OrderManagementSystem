@@ -16,7 +16,7 @@ namespace OrderManagementSystem.Data.Models
         public DateTime? PurchaseDate { get; set; }
 
         public Customer Customer { get; set; }
-        public IList<Product> Products { get; set; }
+        public IList<SaleLineItem> SaleLineItems { get; set; }
 
     }
 }

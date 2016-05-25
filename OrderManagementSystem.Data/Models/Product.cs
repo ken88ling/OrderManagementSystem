@@ -17,6 +17,6 @@ namespace OrderManagementSystem.Data.Models
         //supplier
         public Vendor Vendor { get; set; }
         public Category Category { get; set; }
-        public IList<Sale> Sales { get; set; }
+        public IList<SaleLineItem> SaleLineItems { get; set; }
     }
 }

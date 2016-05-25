@@ -3,7 +3,7 @@ namespace OrderManagementSystem.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialCreate : DbMigration
+    public partial class addsalelineItem : DbMigration
     {
         public override void Up()
         {
@@ -82,6 +82,21 @@ namespace OrderManagementSystem.Data.Migrations
                 .Index(t => t.Vendor_VendorId);
             
             CreateTable(
+                "dbo.SaleLineItem",
+                c => new
+                    {
+                        SaleId = c.Int(nullable: false),
+                        ProductId = c.Int(nullable: false),
+                        Quantity = c.Short(nullable: false),
+                        UnitPrice = c.Decimal(nullable: false, storeType: "money"),
+                    })
+                .PrimaryKey(t => new { t.SaleId, t.ProductId })
+                .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
+                .ForeignKey("dbo.Sale", t => t.SaleId, cascadeDelete: true)
+                .Index(t => t.SaleId)
+                .Index(t => t.ProductId);
+            
+            CreateTable(
                 "dbo.Sale",
                 c => new
                     {
@@ -102,60 +117,27 @@ namespace OrderManagementSystem.Data.Migrations
                     })
                 .PrimaryKey(t => t.VendorId);
             
-            CreateTable(
-                "dbo.SaleLineItem",
-                c => new
-                    {
-                        SaleId = c.Int(nullable: false),
-                        ProductId = c.Int(nullable: false),
-                        Quantity = c.Short(nullable: false),
-                        UnitPrice = c.Decimal(nullable: false, storeType: "money"),
-                    })
-                .PrimaryKey(t => new { t.SaleId, t.ProductId })
-                .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
-                .ForeignKey("dbo.Sale", t => t.SaleId, cascadeDelete: true)
-                .Index(t => t.SaleId)
-                .Index(t => t.ProductId);
-            
-            CreateTable(
-                "dbo.SaleProduct",
-                c => new
-                    {
-                        Sale_SaleId = c.Int(nullable: false),
-                        Product_ProductId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.Sale_SaleId, t.Product_ProductId })
-                .ForeignKey("dbo.Sale", t => t.Sale_SaleId, cascadeDelete: true)
-                .ForeignKey("dbo.Product", t => t.Product_ProductId, cascadeDelete: true)
-                .Index(t => t.Sale_SaleId)
-                .Index(t => t.Product_ProductId);
-            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.SaleLineItem", "SaleId", "dbo.Sale");
-            DropForeignKey("dbo.SaleLineItem", "ProductId", "dbo.Product");
             DropForeignKey("dbo.Product", "Vendor_VendorId", "dbo.Vendor");
-            DropForeignKey("dbo.SaleProduct", "Product_ProductId", "dbo.Product");
-            DropForeignKey("dbo.SaleProduct", "Sale_SaleId", "dbo.Sale");
+            DropForeignKey("dbo.SaleLineItem", "SaleId", "dbo.Sale");
             DropForeignKey("dbo.Sale", "CustomerId", "dbo.Person");
+            DropForeignKey("dbo.SaleLineItem", "ProductId", "dbo.Product");
             DropForeignKey("dbo.Product", "CategoryId", "dbo.Category");
             DropForeignKey("dbo.Inventory", "WareHouseLocation_WareHouseId", "dbo.WareHouse");
             DropForeignKey("dbo.Inventory", "Employee_Id", "dbo.Person");
-            DropIndex("dbo.SaleProduct", new[] { "Product_ProductId" });
-            DropIndex("dbo.SaleProduct", new[] { "Sale_SaleId" });
+            DropIndex("dbo.Sale", new[] { "CustomerId" });
             DropIndex("dbo.SaleLineItem", new[] { "ProductId" });
             DropIndex("dbo.SaleLineItem", new[] { "SaleId" });
-            DropIndex("dbo.Sale", new[] { "CustomerId" });
             DropIndex("dbo.Product", new[] { "Vendor_VendorId" });
             DropIndex("dbo.Product", new[] { "CategoryId" });
             DropIndex("dbo.Inventory", new[] { "WareHouseLocation_WareHouseId" });
             DropIndex("dbo.Inventory", new[] { "Employee_Id" });
-            DropTable("dbo.SaleProduct");
-            DropTable("dbo.SaleLineItem");
             DropTable("dbo.Vendor");
             DropTable("dbo.Sale");
+            DropTable("dbo.SaleLineItem");
             DropTable("dbo.Product");
             DropTable("dbo.WareHouse");
             DropTable("dbo.Inventory");

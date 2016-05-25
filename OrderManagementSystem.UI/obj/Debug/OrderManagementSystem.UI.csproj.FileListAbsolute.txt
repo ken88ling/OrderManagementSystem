@@ -230,3 +230,6 @@ C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.U
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.UI\obj\Debug\OrderManagementSystem.UI.csprojResolveAssemblyReference.cache
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.UI\obj\Debug\OrderManagementSystem.UI.dll
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.UI\obj\Debug\OrderManagementSystem.UI.pdb
+C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.UI\obj\Debug\OrderManagementSystem.UI.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.UI\obj\Debug\OrderManagementSystem.UI.dll
+C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.UI\obj\Debug\OrderManagementSystem.UI.pdb

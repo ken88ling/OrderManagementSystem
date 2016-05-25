@@ -38,17 +38,16 @@ namespace OrderManagementSystem.UI.Controllers
 
         // GET: Products/Create
         public ActionResult Create()
-        {
+        {            
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
             return View();
         }
 
         // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,ProductName,Description,CategoryId,Price")] Product product)
+        public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
             {

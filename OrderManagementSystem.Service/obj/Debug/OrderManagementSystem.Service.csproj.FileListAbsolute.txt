@@ -10,3 +10,6 @@ C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.S
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.csprojResolveAssemblyReference.cache
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.dll
 C:\Users\YHLIN\Desktop\OrderSystem\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.pdb
+C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.dll
+C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.pdb
