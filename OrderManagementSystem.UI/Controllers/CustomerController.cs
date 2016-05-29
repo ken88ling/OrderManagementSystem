@@ -50,7 +50,6 @@ namespace OrderManagementSystem.UI.Controllers
             {
                 try
                 {
-
                     var customer = _customerService.CreateCustomer(
                        model.CustomerCode,                       
                        model.DateOfBirth,

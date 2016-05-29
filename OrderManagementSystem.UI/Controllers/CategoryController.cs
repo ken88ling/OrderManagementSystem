@@ -43,7 +43,7 @@ namespace OrderManagementSystem.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryId,Description")] Category category)
+        public ActionResult Create(Category category)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace OrderManagementSystem.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryId,Description")] Category category)
+        public ActionResult Edit(Category category)
         {
             if (ModelState.IsValid)
             {

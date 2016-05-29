@@ -69,3 +69,4 @@ C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Data\obj\
 C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.pdb
 C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.addsalelineItem.resources
 C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csproj.GenerateResource.Cache
+C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
