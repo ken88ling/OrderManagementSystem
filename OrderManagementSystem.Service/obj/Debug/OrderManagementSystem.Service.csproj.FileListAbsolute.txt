@@ -22,3 +22,15 @@ C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Service\b
 C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\OrderManagementSystem.Data.pdb
 C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\EntityFramework.xml
 C:\Users\user\Source\Repos\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\OrderManagementSystem.Service.dll.config
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\OrderManagementSystem.Service.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\OrderManagementSystem.Service.pdb
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\EntityFramework.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\OrderManagementSystem.Data.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\OrderManagementSystem.Data.pdb
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\EntityFramework.xml
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.csprojResolveAssemblyReference.cache
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Service\obj\Debug\OrderManagementSystem.Service.pdb
