@@ -49,9 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201605250305146_add salelineItem.cs" />
-    <Compile Include="Migrations\201605250305146_add salelineItem.Designer.cs">
-      <DependentUpon>201605250305146_add salelineItem.cs</DependentUpon>
+    <Compile Include="Migrations\201606021359576_initialCreate-force.cs" />
+    <Compile Include="Migrations\201606021359576_initialCreate-force.Designer.cs">
+      <DependentUpon>201606021359576_initialCreate-force.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -80,8 +80,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605250305146_add salelineItem.resx">
-      <DependentUpon>201605250305146_add salelineItem.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606021359576_initialCreate-force.resx">
+      <DependentUpon>201606021359576_initialCreate-force.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,12 +7,20 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OrderManagementSystem.Data.Models;
+using OrderManagementSystem.Service.Order;
 
 namespace OrderManagementSystem.UI.Controllers
 {
     public class ProductController : Controller
     {
-        private OrderDbContext db = new OrderDbContext();
+        private readonly OrderDbContext db;
+        private readonly ProductService _productService;
+
+        public ProductController()
+        {
+            db = new OrderDbContext();
+            _productService = new ProductService(db);
+        }
 
         // GET: Products
         public ActionResult Index()
@@ -51,8 +59,8 @@ namespace OrderManagementSystem.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                _productService.CreateProduct(product.CategoryId, product.ProductName, product.Description,
+                    product.Price, product.VendorId.Value);
                 return RedirectToAction("Index");
             }
 
@@ -76,17 +84,15 @@ namespace OrderManagementSystem.UI.Controllers
             return View(product);
         }
 
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,ProductName,Description,CategoryId,Price")] Product product)
+        public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+                _productService.UpdateProduct(product.ProductId, product.CategoryId, product.ProductName,
+                    product.Description, product.Price, product.VendorId.Value);
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);

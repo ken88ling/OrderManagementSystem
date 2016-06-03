@@ -77,8 +77,7 @@ C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.xml
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
-C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.addsalelineItem.resources
-C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csproj.GenerateResource.Cache
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.dll
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.pdb
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.initialCreateforce.resources
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csproj.GenerateResource.Cache

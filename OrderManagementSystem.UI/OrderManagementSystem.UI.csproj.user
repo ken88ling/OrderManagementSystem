@@ -11,6 +11,7 @@
     <UseIISExpress>true</UseIISExpress>
     <WebStackScaffolding_DbContextTypeFullName>OrderManagementSystem.Data.Models.OrderDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <NameOfLastUsedPublishProfile>orderSystem</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

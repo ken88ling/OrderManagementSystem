@@ -1,0 +1,12 @@
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Release\OrderManagementSystem.Data.dll.config
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Release\OrderManagementSystem.Data.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Release\OrderManagementSystem.Data.pdb
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Release\EntityFramework.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Release\EntityFramework.xml
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Release\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Release\OrderManagementSystem.Data.Migrations.initialCreateforce.resources
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Release\OrderManagementSystem.Data.csproj.GenerateResource.Cache
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Release\OrderManagementSystem.Data.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Release\OrderManagementSystem.Data.pdb

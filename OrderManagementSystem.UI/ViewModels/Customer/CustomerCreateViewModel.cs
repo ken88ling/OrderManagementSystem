@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace OrderManagementSystem.UI.ViewModels.Customer
 {
     public class CustomerCreateViewModel
     {
-
+        [Required]
         [Display(Name = "Customer Code")]
         public string CustomerCode { get; set; }        
         //public string Password { get; set; }
@@ -24,6 +25,7 @@ namespace OrderManagementSystem.UI.ViewModels.Customer
         [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
 
+        [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of Birth")]
@@ -37,5 +39,7 @@ namespace OrderManagementSystem.UI.ViewModels.Customer
         public string Suburb { get; set; }
         public string State { get; set; }
         public string PostCode { get; set; }
+        
+
     }
 }
