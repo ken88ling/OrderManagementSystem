@@ -9,11 +9,13 @@ namespace OrderManagementSystem.Data.Models
     public class Inventory
     {
         public int InventoryId { get; set; }
-        public string PartId { get; set; }
-        public int Initial_QTY { get; set; }
+        public string ProductId { get; set; }
+        public int InitialQTY { get; set; }
         public int SafetyLevel { get; set; }
+        public int CurrentQTY { get; set; }
         
-        public WareHouse WareHouseLocation { get; set; }
+        public Product Product { get; set; }
+        public Vendor Vendor { get; set; }
         public Employee Employee { get; set; }        
 
     }

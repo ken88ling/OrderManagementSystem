@@ -7,13 +7,13 @@ namespace OrderManagementSystem.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initialCreateforce : IMigrationMetadata
+    public sealed partial class addinventoryproperty : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialCreateforce));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addinventoryproperty));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606021359576_initialCreate-force"; }
+            get { return "201606031359433_add inventory property"; }
         }
         
         string IMigrationMetadata.Source

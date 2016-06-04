@@ -8,28 +8,40 @@ using System.Web;
 using System.Web.Mvc;
 using OrderManagementSystem.Data.Models;
 using OrderManagementSystem.Service.Order;
+using OrderManagementSystem.UI.ViewModels.Product;
 
 namespace OrderManagementSystem.UI.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly OrderDbContext db;
-        private readonly ProductService _productService;
+        private OrderDbContext db;
+        private ProductService productService;
 
         public ProductController()
         {
             db = new OrderDbContext();
-            _productService = new ProductService(db);
+            productService = new ProductService(db);
         }
 
-        // GET: Products
+        // GET: Product
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Category);
-            return View(products.ToList());
+            var model = db.Products.Select(p => new ProductIndexViewModel()
+            {
+                
+                CategoryName = p.Category.Description,
+                ProductId = p.ProductId,
+                ProductName = p.ProductName,
+                Description = p.Description,
+                Price = p.Price,
+                VendorName = p.Vendor.Name
+            });
+
+            //var products = db.Products.Include(p => p.Category).Include(p => p.Vendor);
+            return View(model.ToList());
         }
 
-        // GET: Products/Details/5
+        // GET: Product/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -44,31 +56,35 @@ namespace OrderManagementSystem.UI.Controllers
             return View(product);
         }
 
-        // GET: Products/Create
+        // GET: Product/Create
         public ActionResult Create()
-        {            
+        {
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
+            ViewBag.VendorId = new SelectList(db.Vendors, "VendorId", "Name");
             return View();
         }
 
-        // POST: Products/Create
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
             {
-                _productService.CreateProduct(product.CategoryId, product.ProductName, product.Description,
-                    product.Price, product.VendorId.Value);
+                productService.CreateProduct(product.CategoryId, product.ProductName, product.Description, product.Price,
+                    product.VendorId.Value);
+
+                db.Products.Add(product);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
+            ViewBag.VendorId = new SelectList(db.Vendors, "VendorId", "Name", product.VendorId);
             return View(product);
         }
 
-        // GET: Products/Edit/5
+        // GET: Product/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,25 +97,27 @@ namespace OrderManagementSystem.UI.Controllers
                 return HttpNotFound();
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
+            ViewBag.VendorId = new SelectList(db.Vendors, "VendorId", "Name", product.VendorId);
             return View(product);
         }
 
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit([Bind(Include = "ProductId,CategoryId,ProductName,Description,Price,VendorId")] Product product)
         {
             if (ModelState.IsValid)
             {
-                _productService.UpdateProduct(product.ProductId, product.CategoryId, product.ProductName,
-                    product.Description, product.Price, product.VendorId.Value);
+                db.Entry(product).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
+            ViewBag.VendorId = new SelectList(db.Vendors, "VendorId", "Name", product.VendorId);
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: Product/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,7 +132,7 @@ namespace OrderManagementSystem.UI.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
+        // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

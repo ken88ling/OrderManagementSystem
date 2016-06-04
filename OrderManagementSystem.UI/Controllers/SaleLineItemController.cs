@@ -10,107 +10,116 @@ using OrderManagementSystem.Data.Models;
 
 namespace OrderManagementSystem.UI.Controllers
 {
-    public class WareHouseController : Controller
+    public class SaleLineItemController : Controller
     {
         private OrderDbContext db = new OrderDbContext();
 
-        // GET: WareHouses
+        // GET: SaleLineItem
         public ActionResult Index()
         {
-            return View(db.WareHouses.ToList());
+            var saleLineItems = db.SaleLineItems.Include(s => s.Product).Include(s => s.Sale);
+            return View(saleLineItems.ToList());
         }
 
-        // GET: WareHouses/Details/5
+        // GET: SaleLineItem/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WareHouse wareHouse = db.WareHouses.Find(id);
-            if (wareHouse == null)
+            SaleLineItem saleLineItem = db.SaleLineItems.Find(id);
+            if (saleLineItem == null)
             {
                 return HttpNotFound();
             }
-            return View(wareHouse);
+            return View(saleLineItem);
         }
 
-        // GET: WareHouses/Create
+        // GET: SaleLineItem/Create
         public ActionResult Create()
         {
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductName");
+            ViewBag.SaleId = new SelectList(db.Sales, "SaleId", "SaleId");
             return View();
         }
 
-        // POST: WareHouses/Create
+        // POST: SaleLineItem/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WareHouseId,Name")] WareHouse wareHouse)
+        public ActionResult Create([Bind(Include = "SaleId,ProductId,Quantity,UnitPrice")] SaleLineItem saleLineItem)
         {
             if (ModelState.IsValid)
             {
-                db.WareHouses.Add(wareHouse);
+                db.SaleLineItems.Add(saleLineItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(wareHouse);
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductName", saleLineItem.ProductId);
+            ViewBag.SaleId = new SelectList(db.Sales, "SaleId", "SaleId", saleLineItem.SaleId);
+            return View(saleLineItem);
         }
 
-        // GET: WareHouses/Edit/5
+        // GET: SaleLineItem/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WareHouse wareHouse = db.WareHouses.Find(id);
-            if (wareHouse == null)
+            SaleLineItem saleLineItem = db.SaleLineItems.Find(id);
+            if (saleLineItem == null)
             {
                 return HttpNotFound();
             }
-            return View(wareHouse);
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductName", saleLineItem.ProductId);
+            ViewBag.SaleId = new SelectList(db.Sales, "SaleId", "SaleId", saleLineItem.SaleId);
+            return View(saleLineItem);
         }
 
-        // POST: WareHouses/Edit/5
+        // POST: SaleLineItem/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WareHouseId,Name")] WareHouse wareHouse)
+        public ActionResult Edit([Bind(Include = "SaleId,ProductId,Quantity,UnitPrice")] SaleLineItem saleLineItem)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(wareHouse).State = EntityState.Modified;
+                db.Entry(saleLineItem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(wareHouse);
+            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductName", saleLineItem.ProductId);
+            ViewBag.SaleId = new SelectList(db.Sales, "SaleId", "SaleId", saleLineItem.SaleId);
+            return View(saleLineItem);
         }
 
-        // GET: WareHouses/Delete/5
+        // GET: SaleLineItem/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WareHouse wareHouse = db.WareHouses.Find(id);
-            if (wareHouse == null)
+            SaleLineItem saleLineItem = db.SaleLineItems.Find(id);
+            if (saleLineItem == null)
             {
                 return HttpNotFound();
             }
-            return View(wareHouse);
+            return View(saleLineItem);
         }
 
-        // POST: WareHouses/Delete/5
+        // POST: SaleLineItem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            WareHouse wareHouse = db.WareHouses.Find(id);
-            db.WareHouses.Remove(wareHouse);
+            SaleLineItem saleLineItem = db.SaleLineItems.Find(id);
+            db.SaleLineItems.Remove(saleLineItem);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

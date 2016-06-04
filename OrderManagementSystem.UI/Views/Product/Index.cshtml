@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OrderManagementSystem.Data.Models.Product>
+﻿@model IEnumerable<OrderManagementSystem.UI.ViewModels.Product.ProductIndexViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,11 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Category.Description)
+            @*@Html.DisplayNameFor(model => model.CategoryName)*@
+            Category Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
@@ -28,18 +32,21 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
+        <th>
+            @item.CategoryName
+        </th>
+        <th>
+            @item.VendorName
+        </th>
+        <th>
+            @Html.DisplayFor(m=>item.ProductName)
+        </th>
+        <th>
+            @item.Description
+        </th>
+        <th>
+            @item.Price
+        </th>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |

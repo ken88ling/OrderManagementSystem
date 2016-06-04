@@ -3,7 +3,7 @@ namespace OrderManagementSystem.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialCreateforce : DbMigration
+    public partial class addrelationshipTosalelineitem : DbMigration
     {
         public override void Up()
         {

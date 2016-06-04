@@ -27,12 +27,13 @@ namespace OrderManagementSystem.Data.Models.Mapping
 
 
             //relationships
-            //this.HasRequired(t => t.Product)
-            //    .WithMany(t => t.SaleLineItemList)
-            //    .HasForeignKey(d => d.ProductId);
+            this.HasRequired(t => t.Product)
+                .WithMany(t => t.SaleLineItems)
+                .HasForeignKey(d => d.ProductId);
 
-            //this.HasRequired(t => t.Sale)
-            //    .WithMany(t => t.SaleLineItemlist);
+            this.HasRequired(t => t.Sale)
+                .WithMany(t => t.SaleLineItems)
+                .HasForeignKey(d => d.SaleId);
         }
     }
 }

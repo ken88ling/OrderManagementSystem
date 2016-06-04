@@ -3,22 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace OrderManagementSystem.Data.Models
 {
     public class Product
     {
         public int ProductId { get; set; }
+
         public int CategoryId { get; set; }
+
         public string ProductName { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+
         public int? VendorId { get; set; }
 
-
+        
         //supplier
         public Vendor Vendor { get; set; }
         public Category Category { get; set; }
-        //public IList<SaleLineItem> SaleLineItems { get; set; }
+
+        //navigator
+        public ICollection<SaleLineItem> SaleLineItems { get; set; }
+
+        public Product()
+        {
+            SaleLineItems = new List<SaleLineItem>();
+        }
     }
 }

@@ -11,25 +11,25 @@ namespace OrderManagementSystem.Data.Models
 {
     public class OrderDbContext : DbContext
     {
+        //public DbSet<Person> People { get; set; }
         public DbSet<Person> Person { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<SaleLineItem> SaleLineItems { get; set; }
         public DbSet<Customer> Customers { get; set; }
         //public DbSet<Region> Regions { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
-        public DbSet<WareHouse> WareHouses { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Category> Categories { get; set; }
 
-
+        public DbSet<SaleLineItem> SaleLineItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Configurations.Add(new SaleLineItemMap());
-
+            //modelBuilder.Configurations.Add(new SaleLineItemMap());
+            
+            
             //modelBuilder.Entity<Customer>()
             //    .Map(map =>
             //        {

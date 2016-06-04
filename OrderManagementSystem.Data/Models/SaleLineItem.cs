@@ -10,8 +10,7 @@ namespace OrderManagementSystem.Data.Models
 {
     public class SaleLineItem
     {
-        public Sale Sale { get; set; }
-        public Product Product { get; set; }
+        
         [Key, Column(Order = 1)]
         public int? SaleId { get; set; }
         [Key, Column(Order = 2)]
@@ -19,6 +18,10 @@ namespace OrderManagementSystem.Data.Models
 
         public short Quantity { get; set; }
         public decimal UnitPrice { get; set; }
+
+        //navigator
+        public Sale Sale { get; set; }
+        public Product Product { get; set; }
 
         
     }
