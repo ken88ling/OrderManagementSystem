@@ -89,7 +89,12 @@
     <Compile Include="Migrations\201606031359433_add inventory property.Designer.cs">
       <DependentUpon>201606031359433_add inventory property.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606040629212_add-carttable.cs" />
+    <Compile Include="Migrations\201606040629212_add-carttable.Designer.cs">
+      <DependentUpon>201606040629212_add-carttable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -122,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606031359433_add inventory property.resx">
       <DependentUpon>201606031359433_add inventory property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606040629212_add-carttable.resx">
+      <DependentUpon>201606040629212_add-carttable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

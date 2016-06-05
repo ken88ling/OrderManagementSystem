@@ -23,6 +23,8 @@ namespace OrderManagementSystem.Data.Models
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<SaleLineItem> SaleLineItems { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

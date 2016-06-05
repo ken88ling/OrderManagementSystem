@@ -39,6 +39,7 @@ namespace OrderManagementSystem.UI.Controllers
         // GET: Sale/Create
         public ActionResult Create()
         {
+            
             ViewBag.CustomerId = new SelectList(db.Person, "Id", "FirstName");
             return View();
         }
