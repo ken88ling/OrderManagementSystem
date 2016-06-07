@@ -15,6 +15,10 @@ namespace OrderManagementSystem.Data.Models
         public int CustomerId { get; set; }        
         public DateTime? PurchaseDate { get; set; }
 
+        public DateTime? PaymentDate { get; set; }
+
+
+
         public virtual Customer Customer { get; set; }
         //public IList<SaleLineItem> SaleLineItems { get; set; }
         public List<SaleLineItem> SaleLineItems { get; set; }

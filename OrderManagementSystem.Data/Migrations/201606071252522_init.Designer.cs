@@ -7,13 +7,13 @@ namespace OrderManagementSystem.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addcarttable : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addcarttable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606040629212_add-carttable"; }
+            get { return "201606071252522_init"; }
         }
         
         string IMigrationMetadata.Source

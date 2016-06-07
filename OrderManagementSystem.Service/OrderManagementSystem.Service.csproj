@@ -52,6 +52,7 @@
     <Compile Include="Order\CustomerService.cs" />
     <Compile Include="Order\EmployeeService.cs" />
     <Compile Include="Order\ProductService.cs" />
+    <Compile Include="Order\SaleService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

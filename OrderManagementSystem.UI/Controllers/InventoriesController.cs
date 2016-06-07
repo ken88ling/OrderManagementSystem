@@ -10,7 +10,7 @@ using OrderManagementSystem.Data.Models;
 
 namespace OrderManagementSystem.UI.Controllers
 {
-    public class InventoryController : Controller
+    public class InventoriesController : Controller
     {
         private OrderDbContext db = new OrderDbContext();
 
@@ -46,7 +46,7 @@ namespace OrderManagementSystem.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InventoryId,PartId,Initial_QTY,SafetyLevel")] Inventory inventory)
+        public ActionResult Create([Bind(Include = "InventoryId,ProductId,InitialQTY,SafetyLevel,CurrentQTY")] Inventory inventory)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace OrderManagementSystem.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InventoryId,PartId,Initial_QTY,SafetyLevel")] Inventory inventory)
+        public ActionResult Edit([Bind(Include = "InventoryId,ProductId,InitialQTY,SafetyLevel,CurrentQTY")] Inventory inventory)
         {
             if (ModelState.IsValid)
             {

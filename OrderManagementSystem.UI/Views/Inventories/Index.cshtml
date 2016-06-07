@@ -12,13 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PartId)
+            @Html.DisplayNameFor(model => model.ProductId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Initial_QTY)
+            @Html.DisplayNameFor(model => model.InitialQTY)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SafetyLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentQTY)
         </th>
         <th></th>
     </tr>
@@ -26,13 +29,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PartId)
+            @Html.DisplayFor(modelItem => item.ProductId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Initial_QTY)
+            @Html.DisplayFor(modelItem => item.InitialQTY)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SafetyLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentQTY)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.InventoryId }) |

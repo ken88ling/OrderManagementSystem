@@ -7,13 +7,13 @@ namespace OrderManagementSystem.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addrelationshipTosalelineitem : IMigrationMetadata
+    public sealed partial class costing : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addrelationshipTosalelineitem));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(costing));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606030904477_addrelationshipTosalelineitem"; }
+            get { return "201606071333248_costing"; }
         }
         
         string IMigrationMetadata.Source

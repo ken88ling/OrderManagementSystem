@@ -28,12 +28,11 @@ namespace OrderManagementSystem.UI.Controllers
         {
             var model = db.Products.Select(p => new ProductIndexViewModel()
             {
-                
+                ProductId = p.Id,
                 CategoryName = p.Category.Description,
-                ProductId = p.ProductId,
                 ProductName = p.ProductName,
                 Description = p.Description,
-                Price = p.Price,
+                Price = p.Price.Value,
                 VendorName = p.Vendor.Name
             });
 
@@ -71,11 +70,9 @@ namespace OrderManagementSystem.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                productService.CreateProduct(product.CategoryId, product.ProductName, product.Description, product.Price,
-                    product.VendorId.Value);
-
-                db.Products.Add(product);
-                db.SaveChanges();
+                productService.CreateProduct(product.CategoryId, product.ProductName, product.Description, product.Price.Value,product.Cost.Value,
+                    product.VendorId);
+               
                 return RedirectToAction("Index");
             }
 

@@ -15,13 +15,14 @@ namespace OrderManagementSystem.Service.Order
             _context = context;
         }
 
-        public Product CreateProduct(int categoryId, string productName, string description, decimal price, int vendorId)
+        public Product CreateProduct(int categoryId, string productName, string description, decimal cost,decimal price, int vendorId)
         {
             var product = new Product()
             {
                 CategoryId = categoryId,
                 ProductName = productName,
                 Description = description,
+                Cost = cost,
                 Price = price,
                 VendorId = vendorId
             };

@@ -77,21 +77,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201606030842281_initialCreate.cs" />
-    <Compile Include="Migrations\201606030842281_initialCreate.Designer.cs">
-      <DependentUpon>201606030842281_initialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201606071252522_init.cs" />
+    <Compile Include="Migrations\201606071252522_init.Designer.cs">
+      <DependentUpon>201606071252522_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606030904477_addrelationshipTosalelineitem.cs" />
-    <Compile Include="Migrations\201606030904477_addrelationshipTosalelineitem.Designer.cs">
-      <DependentUpon>201606030904477_addrelationshipTosalelineitem.cs</DependentUpon>
+    <Compile Include="Migrations\201606071309256_up.cs" />
+    <Compile Include="Migrations\201606071309256_up.Designer.cs">
+      <DependentUpon>201606071309256_up.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606031359433_add inventory property.cs" />
-    <Compile Include="Migrations\201606031359433_add inventory property.Designer.cs">
-      <DependentUpon>201606031359433_add inventory property.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606040629212_add-carttable.cs" />
-    <Compile Include="Migrations\201606040629212_add-carttable.Designer.cs">
-      <DependentUpon>201606040629212_add-carttable.cs</DependentUpon>
+    <Compile Include="Migrations\201606071333248_costing.cs" />
+    <Compile Include="Migrations\201606071333248_costing.Designer.cs">
+      <DependentUpon>201606071333248_costing.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -119,17 +115,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606030842281_initialCreate.resx">
-      <DependentUpon>201606030842281_initialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606071252522_init.resx">
+      <DependentUpon>201606071252522_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606030904477_addrelationshipTosalelineitem.resx">
-      <DependentUpon>201606030904477_addrelationshipTosalelineitem.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606071309256_up.resx">
+      <DependentUpon>201606071309256_up.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606031359433_add inventory property.resx">
-      <DependentUpon>201606031359433_add inventory property.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606040629212_add-carttable.resx">
-      <DependentUpon>201606040629212_add-carttable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606071333248_costing.resx">
+      <DependentUpon>201606071333248_costing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

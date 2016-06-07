@@ -159,7 +159,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\InventoryController.cs" />
+    <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\SaleLineItemController.cs" />
@@ -174,6 +174,10 @@
     <Compile Include="ViewModels\Employee\EmployeeCreateViewModel.cs" />
     <Compile Include="ViewModels\Employee\EmployeeIndexViewModel.cs" />
     <Compile Include="ViewModels\Product\ProductIndexViewModel.cs" />
+    <Compile Include="ViewModels\Sale\SaleCreateViewModel.cs" />
+    <Compile Include="ViewModels\Sale\SaleDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Sale\SaleEditViewModel.cs" />
+    <Compile Include="ViewModels\Sale\SaleIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -235,26 +239,21 @@
     <Content Include="Views\Vendor\Details.cshtml" />
     <Content Include="Views\Vendor\Edit.cshtml" />
     <Content Include="Views\Vendor\Index.cshtml" />
-    <Content Include="Views\Inventory\Create.cshtml" />
-    <Content Include="Views\Inventory\Delete.cshtml" />
-    <Content Include="Views\Inventory\Details.cshtml" />
-    <Content Include="Views\Inventory\Edit.cshtml" />
-    <Content Include="Views\Inventory\Index.cshtml" />
-    <Content Include="Views\Sale\Create.cshtml" />
-    <Content Include="Views\Sale\Delete.cshtml" />
-    <Content Include="Views\Sale\Details.cshtml" />
-    <Content Include="Views\Sale\Edit.cshtml" />
-    <Content Include="Views\Sale\Index.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\SaleLineItem\Create.cshtml" />
-    <Content Include="Views\SaleLineItem\Delete.cshtml" />
-    <Content Include="Views\SaleLineItem\Details.cshtml" />
-    <Content Include="Views\SaleLineItem\Edit.cshtml" />
-    <Content Include="Views\SaleLineItem\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Sale\Index.cshtml" />
+    <Content Include="Views\Sale\Details.cshtml" />
+    <Content Include="Views\Sale\Create.cshtml" />
+    <Content Include="Views\Sale\Edit.cshtml" />
+    <Content Include="Views\Sale\Delete.cshtml" />
+    <Content Include="Views\Inventories\Create.cshtml" />
+    <Content Include="Views\Inventories\Delete.cshtml" />
+    <Content Include="Views\Inventories\Details.cshtml" />
+    <Content Include="Views\Inventories\Edit.cshtml" />
+    <Content Include="Views\Inventories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

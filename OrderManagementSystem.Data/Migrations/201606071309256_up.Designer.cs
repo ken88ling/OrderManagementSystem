@@ -7,13 +7,13 @@ namespace OrderManagementSystem.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addinventoryproperty : IMigrationMetadata
+    public sealed partial class up : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addinventoryproperty));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(up));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606031359433_add inventory property"; }
+            get { return "201606071309256_up"; }
         }
         
         string IMigrationMetadata.Source
