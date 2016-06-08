@@ -16,23 +16,35 @@ namespace OrderManagementSystem.Service.Order
             _context = context;
         }
 
-        public Sale CreateSale(int customerId, DateTime paymentTime, int productId, short quantity)
+        public Sale CreateSale(int customerId, DateTime paymentTime, List<SaleLineItem> saleLineItems )
         {
             var sale = new Sale();
             sale.CustomerId = customerId;
             sale.PurchaseDate = DateTime.Now;
             sale.PaymentDate = paymentTime;
-
-            var salelineItem = new SaleLineItem();
-            salelineItem.ProductId = productId;
-            salelineItem.Quantity = quantity;
-            salelineItem.UnitPrice = _context.Products.Find(productId).Price.Value;
-            sale.SaleLineItems.Add(salelineItem);
-
+            sale.SaleLineItems = saleLineItems;
             _context.Sales.Add(sale);
             _context.SaveChanges();
             return sale;
         }
+
+        //public Sale CreateSale(int customerId, DateTime paymentTime, int productId, int quantity)
+        //{
+        //    var sale = new Sale();
+        //    sale.CustomerId = customerId;
+        //    sale.PurchaseDate = DateTime.Now;
+        //    sale.PaymentDate = paymentTime;
+        //    sale.SaleLineItems = 
+        //    //var salelineItem = new SaleLineItem();
+        //    //salelineItem.ProductId = productId;
+        //    //salelineItem.Quantity = quantity;
+        //    //salelineItem.UnitPrice = _context.Products.Find(productId).Price.Value;
+        //    //sale.SaleLineItems.Add(salelineItem);
+
+        //    _context.Sales.Add(sale);
+        //    _context.SaveChanges();
+        //    return sale;
+        //}
 
         public Sale UpdateSale(int id, int customerId, DateTime? purchaseDate, DateTime? paymentDate)
         {

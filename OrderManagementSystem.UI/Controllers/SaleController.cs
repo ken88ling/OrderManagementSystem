@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 using OrderManagementSystem.Data.Models;
 using OrderManagementSystem.Service.Order;
 using OrderManagementSystem.UI.ViewModels.Sale;
+using OrderManagementSystem.UI.ViewModels.SaleLineItem;
 
 namespace OrderManagementSystem.UI.Controllers
 {
@@ -16,6 +18,10 @@ namespace OrderManagementSystem.UI.Controllers
     {
         private OrderDbContext _context;
         private SaleService _saleApplicationService;
+        private static List<Product> items = new List<Product>();
+        private static List<SaleLineItemCreateViewModel> sales = new List<SaleLineItemCreateViewModel>();
+        
+
         public SaleController()
         {
             _context = new OrderDbContext();
@@ -36,6 +42,12 @@ namespace OrderManagementSystem.UI.Controllers
             });
 
             return View(model);
+        }
+
+        public PartialViewResult getSaleDetail()
+        {
+            var model = _context.SaleLineItems.ToList();
+            return PartialView("_SaleDetail", model);
         }
 
         // GET: Sale/Details/5
@@ -82,21 +94,60 @@ namespace OrderManagementSystem.UI.Controllers
                 .Select(s => new SaleCreateViewModel()
                 {
                     Productindex = s.Id,
+                    ProductName = s.ProductName,
                     ProductFullDetail = s.ProductName + " , $" + s.Price
-                });
+                }).ToList();
 
             //var product = _context.Products.ToList();
 
-            var model = new SaleCreateViewModel();
+            var model = new SaleCreateViewModel()
+            {
+                SaleLineItems = sales
+            };
             model.CustomerSelectList = new SelectList(customer, "CustomerId", "CustomerFullName");
-            model.ProductSelectList = new SelectList(product, "Productindex", "ProductFullDetail");
+            model.ProductSelectList = new SelectList(product, "Productindex", "ProductName");
 
             return View(model);
         }
 
+        public ActionResult Add(int? Productindex)
+        {
+            if (Productindex == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var productfromdb = _context.Products.Find(Productindex);
+            if (productfromdb == null)
+            {
+                return HttpNotFound();
+            }
+            //foreach (var product in sales)
+            //{
+            //    if (product.ProductId == productfromdb.Id)
+            //    {
+            //        product.QTY++;
+            //    }
+            //}
+            items.Add(productfromdb);
+            //var i = 0;
+
+            var salelineItem = new SaleLineItemCreateViewModel()
+            {
+                ProductId = productfromdb.Id,
+                ProductName = productfromdb.ProductName,
+                QTY = 1,
+                Price = productfromdb.Price.Value
+            };
+
+            sales.Add(salelineItem);
+
+            return RedirectToAction("Create");
+        }
+
         // POST: Sale/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public ActionResult Create(SaleCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -104,10 +155,22 @@ namespace OrderManagementSystem.UI.Controllers
                 try
                 {
                     // TODO: Add insert logic here
-                    //_saleApplicationService.CreateSale( model.CustomerId, model.PurchaseDate,model.PaymentDate, model.ProductId, model.Quantity);
-                    _saleApplicationService.CreateSale(model.CustomerId, model.PaymentDate, model.Productindex,
-                        model.Quantity);
+                    //_saleApplicationService.CreateSale(model.CustomerId, model.PaymentDate, model.Productindex,
+                    //    model.Quantity);
+                    var list = new List<SaleLineItem>();
+                    foreach (var item in sales)
+                    {
+                        var saleLineItem = new SaleLineItem()
+                        {
+                            ProductId = item.ProductId,
+                            Quantity = item.QTY,
+                            UnitPrice = item.Price
+                        };
+                        list.Add(saleLineItem);
+                    }
 
+                  _saleApplicationService.CreateSale(model.CustomerId, model.PaymentDate, list);
+                    sales = null;
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
@@ -230,5 +293,51 @@ namespace OrderManagementSystem.UI.Controllers
             };
             return View(model);
         }
+
+        public ActionResult AddQuant(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var checkqty = sales.Find(itemid => itemid.ProductId == id);
+            if (checkqty != null)
+            {
+                checkqty.QTY += 1;
+            }
+
+            if (checkqty == null)
+            {
+                return HttpNotFound();
+            }
+
+            return RedirectToAction("Create");
+        }
+
+        //
+        public ActionResult SubQuant(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var checkqty = sales.Find(itemid => itemid.ProductId == id);
+            if (checkqty != null)
+            {
+                if (checkqty.QTY > 0)
+                {
+                    checkqty.QTY -= 1;
+                }
+            }
+
+            if (checkqty == null)
+            {
+                return HttpNotFound();
+            }
+            return RedirectToAction("Create");
+        }
+
     }
 }

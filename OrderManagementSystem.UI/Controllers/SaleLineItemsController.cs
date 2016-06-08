@@ -10,18 +10,18 @@ using OrderManagementSystem.Data.Models;
 
 namespace OrderManagementSystem.UI.Controllers
 {
-    public class SaleLineItemController : Controller
+    public class SaleLineItemsController : Controller
     {
         private OrderDbContext db = new OrderDbContext();
 
-        // GET: SaleLineItem
+        // GET: SaleLineItems
         public ActionResult Index()
         {
             var saleLineItems = db.SaleLineItems.Include(s => s.Product).Include(s => s.Sale);
             return View(saleLineItems.ToList());
         }
 
-        // GET: SaleLineItem/Details/5
+        // GET: SaleLineItems/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,15 +36,15 @@ namespace OrderManagementSystem.UI.Controllers
             return View(saleLineItem);
         }
 
-        // GET: SaleLineItem/Create
+        // GET: SaleLineItems/Create
         public ActionResult Create()
         {
-            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductName");
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "ProductName");
             ViewBag.SaleId = new SelectList(db.Sales, "SaleId", "SaleId");
             return View();
         }
 
-        // POST: SaleLineItem/Create
+        // POST: SaleLineItems/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,12 +58,12 @@ namespace OrderManagementSystem.UI.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductName", saleLineItem.ProductId);
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "ProductName", saleLineItem.ProductId);
             ViewBag.SaleId = new SelectList(db.Sales, "SaleId", "SaleId", saleLineItem.SaleId);
             return View(saleLineItem);
         }
 
-        // GET: SaleLineItem/Edit/5
+        // GET: SaleLineItems/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,12 +75,12 @@ namespace OrderManagementSystem.UI.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductName", saleLineItem.ProductId);
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "ProductName", saleLineItem.ProductId);
             ViewBag.SaleId = new SelectList(db.Sales, "SaleId", "SaleId", saleLineItem.SaleId);
             return View(saleLineItem);
         }
 
-        // POST: SaleLineItem/Edit/5
+        // POST: SaleLineItems/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -93,12 +93,12 @@ namespace OrderManagementSystem.UI.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "ProductName", saleLineItem.ProductId);
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "ProductName", saleLineItem.ProductId);
             ViewBag.SaleId = new SelectList(db.Sales, "SaleId", "SaleId", saleLineItem.SaleId);
             return View(saleLineItem);
         }
 
-        // GET: SaleLineItem/Delete/5
+        // GET: SaleLineItems/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +113,7 @@ namespace OrderManagementSystem.UI.Controllers
             return View(saleLineItem);
         }
 
-        // POST: SaleLineItem/Delete/5
+        // POST: SaleLineItems/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

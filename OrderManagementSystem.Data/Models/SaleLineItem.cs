@@ -16,7 +16,7 @@ namespace OrderManagementSystem.Data.Models
         [Key, Column(Order = 2)]
         public int ProductId { get; set; }
 
-        public short Quantity { get; set; }
+        public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
 
         //navigator

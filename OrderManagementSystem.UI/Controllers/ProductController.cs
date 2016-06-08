@@ -101,7 +101,7 @@ namespace OrderManagementSystem.UI.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,CategoryId,ProductName,Description,Price,VendorId")] Product product)
+        public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
             {

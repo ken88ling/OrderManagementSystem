@@ -96,3 +96,31 @@ C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csproj.GenerateResource.Cache
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.up.resources
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.costing.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\OrderManagementSystem.Data.dll.config
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\OrderManagementSystem.Data.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\OrderManagementSystem.Data.pdb
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.Helpers.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.Mvc.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.Razor.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.WebPages.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.Helpers.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.Mvc.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.Razor.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.WebPages.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.init.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.up.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.costing.resources
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csproj.GenerateResource.Cache
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.dll
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.pdb
+C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.changeshorttoint.resources
