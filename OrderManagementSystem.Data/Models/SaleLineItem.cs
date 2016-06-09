@@ -21,9 +21,7 @@ namespace OrderManagementSystem.Data.Models
 
         //navigator
         public Sale Sale { get; set; }
-        public Product Product { get; set; }
-
-        
+        public virtual Product Product { get; set; }
     }
 }
  

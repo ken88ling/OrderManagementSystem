@@ -32,13 +32,25 @@ namespace OrderManagementSystem.UI.Controllers
                     DateOfBirth = c.DateOfBirth,
                     FullAddress = c.StreetAddress + " " + c.Suburb + " " + c.PostCode + " " + c.State
                 });
-            
+
             return View(model);
+        }
+
+
+        public ActionResult GetStates()
+        {
+            var o = new { Val = 1, Text = "NSW" };
+            var o1 = new { Val = 2, Text = "VIC" };
+            var o2 = new { Val = 3, Text = "TAS" };
+            var o3 = new { Val = 4, Text = "WA" };
+            var o4 = new { Val = 5, Text = "NT" };
+            var states = new[] { o, o1,o2,o3,o4 }.ToList();
+            return Json(states, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
         public ActionResult Create()
-        {            
+        {
             return View();
         }
 
@@ -51,7 +63,7 @@ namespace OrderManagementSystem.UI.Controllers
                 try
                 {
                     _customerService.CreateCustomer(
-                       model.CustomerCode,                       
+                       model.CustomerCode,
                        model.DateOfBirth,
                        model.FirstName,
                        model.LastName,
@@ -80,7 +92,7 @@ namespace OrderManagementSystem.UI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             var customer = _context.Customers.FirstOrDefault(s => s.Id == id);
             if (customer == null)
             {
@@ -125,7 +137,7 @@ namespace OrderManagementSystem.UI.Controllers
             return View(model);
         }
 
-        
+
 
         [HttpGet]
         public ActionResult Details(int? id)
@@ -150,7 +162,7 @@ namespace OrderManagementSystem.UI.Controllers
                 FullAddress = String.Format("{0} {1} {2} {3}", customer.StreetAddress, customer.Suburb, customer.State, customer.PostCode)
             };
 
-            if(model == null)
+            if (model == null)
             {
                 return HttpNotFound();
             }
@@ -166,7 +178,7 @@ namespace OrderManagementSystem.UI.Controllers
             }
 
             var customer = _context.Customers.Find(id);
-            if(customer == null)
+            if (customer == null)
             {
                 return HttpNotFound();
             }
@@ -179,11 +191,11 @@ namespace OrderManagementSystem.UI.Controllers
                 DateOfBirth = customer.DateOfBirth,
                 FullAddress = customer.StreetAddress + " " + customer.Suburb,
             };
-                        
+
             return View(model);
         }
 
-        [HttpPost,ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int? id)
         {
@@ -193,7 +205,7 @@ namespace OrderManagementSystem.UI.Controllers
                 return RedirectToAction("Index");
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }

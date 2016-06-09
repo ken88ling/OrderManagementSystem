@@ -6,46 +6,53 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm("Add", "Sale",FormMethod.Get,new { productId = Model.Productindex }))
+@using (Html.BeginForm("Add", "Sale", FormMethod.Get, new { productId = Model.Productindex }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <h4>SaleCreateViewModel</h4>
-        <hr/>
+        <hr />
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductFullDetail, htmlAttributes: new {@class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.ProductFullDetail, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Productindex, Model.ProductSelectList, new {@class = "form-control"})
+                @Html.DropDownListFor(model => model.Productindex, Model.ProductSelectList, new { @class = "form-control" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Quantity, htmlAttributes: new {@class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Quantity, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Quantity, "", new {@class = "text-danger"})
-            </div>
-        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Quantity, htmlAttributes: new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Quantity, new {htmlAttributes = new {@class = "form-control"}})
+                    @Html.ValidationMessageFor(model => model.Quantity, "", new {@class = "text-danger"})
+                </div>
+            </div>*@
+
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add" id="Add" name="Add" class="btn btn-default"/>
+                <input type="submit" value="Add" id="Add" name="Add" class="btn btn-default" />
             </div>
         </div>
+
+
     </div>
+    <hr />
 }
 @using (Html.BeginForm("Create", "Sale", FormMethod.Post, new { productId = Model.Productindex }))
 {
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.CustomerId, Model.CustomerSelectList, "Please Select Customer", new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CustomerId, Model.CustomerSelectList, "Please Select Customer", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
+
 
 
         <div class="form-group">
@@ -56,9 +63,10 @@
             </div>
 
         </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
 }
@@ -67,25 +75,25 @@
 
 
 
-   <table class="table">
-       <tr>
-           <th>
-               Product Name
-           </th>
-           <th>
-               Quantity
-           </th>
-           <th>
-               Price
-           </th>
-           <th>
-               Total
-           </th>
-           <th></th>
-       </tr>
+<table class="table">
+    <tr>
+        <th>
+            Product Name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Total
+        </th>
+        <th></th>
+    </tr>
 
     @foreach (var item in Model.SaleLineItems)
-    {
+            {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)

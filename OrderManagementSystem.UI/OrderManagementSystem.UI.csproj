@@ -159,7 +159,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\InventoriesController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\SaleLineItemsController.cs" />
@@ -174,6 +174,8 @@
     <Compile Include="ViewModels\Customer\CustomerIndexViewModel.cs" />
     <Compile Include="ViewModels\Employee\EmployeeCreateViewModel.cs" />
     <Compile Include="ViewModels\Employee\EmployeeIndexViewModel.cs" />
+    <Compile Include="ViewModels\Inventory\InventoryCreateVM.cs" />
+    <Compile Include="ViewModels\Inventory\InventoryIndexMV.cs" />
     <Compile Include="ViewModels\Product\ProductIndexViewModel.cs" />
     <Compile Include="ViewModels\SaleLineItem\SaleLineItemCreateViewModel.cs" />
     <Compile Include="ViewModels\Sale\SaleCreateViewModel.cs" />
@@ -182,8 +184,9 @@
     <Compile Include="ViewModels\Sale\SaleIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-org.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min-org.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -196,6 +199,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\bootstrap.min.css" />
     <None Include="Properties\PublishProfiles\orderSystem.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -252,17 +256,17 @@
     <Content Include="Views\Sale\Create.cshtml" />
     <Content Include="Views\Sale\Edit.cshtml" />
     <Content Include="Views\Sale\Delete.cshtml" />
-    <Content Include="Views\Inventories\Create.cshtml" />
-    <Content Include="Views\Inventories\Delete.cshtml" />
-    <Content Include="Views\Inventories\Details.cshtml" />
-    <Content Include="Views\Inventories\Edit.cshtml" />
-    <Content Include="Views\Inventories\Index.cshtml" />
     <Content Include="Views\SaleLineItems\Create.cshtml" />
     <Content Include="Views\SaleLineItems\Delete.cshtml" />
     <Content Include="Views\SaleLineItems\Details.cshtml" />
     <Content Include="Views\SaleLineItems\Edit.cshtml" />
     <Content Include="Views\SaleLineItems\Index.cshtml" />
     <Content Include="Views\Shared\_SaleDetail.cshtml" />
+    <Content Include="Views\Inventory\Create.cshtml" />
+    <Content Include="Views\Inventory\Delete.cshtml" />
+    <Content Include="Views\Inventory\Details.cshtml" />
+    <Content Include="Views\Inventory\Edit.cshtml" />
+    <Content Include="Views\Inventory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
