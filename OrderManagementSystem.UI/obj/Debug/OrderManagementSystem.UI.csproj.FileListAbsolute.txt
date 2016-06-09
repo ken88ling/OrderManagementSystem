@@ -415,3 +415,5 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderM
 C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.UI\obj\Debug\OrderManagementSystem.UI.pdb
 C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.UI\bin\SharpRepository.EfRepository.dll
 C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.UI\bin\SharpRepository.Repository.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.UI\bin\SharpRepository.EfRepository.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.UI\bin\SharpRepository.Repository.dll

@@ -21,10 +21,9 @@ namespace OrderManagementSystem.Data.Models
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Category> Categories { get; set; }
-
         public DbSet<SaleLineItem> SaleLineItems { get; set; }
         public DbSet<Cart> Carts { get; set; }
-
+        public DbSet<States> Staties { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

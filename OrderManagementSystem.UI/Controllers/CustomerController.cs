@@ -14,16 +14,15 @@ namespace OrderManagementSystem.UI.Controllers
     public class CustomerController : Controller
     {
         private OrderDbContext _context;
-        private CustomerService _customerService;
+        private CustomerService _customerService; 
 
         protected EfRepository<Customer> _CustomerRepository;
 
         public CustomerController()
         {
-            _context = new OrderDbContext();
-            //_customerService = new CustomerService(_context);
-            //_customerService = new CustomerService(_context);
-            _CustomerRepository = new EfRepository<Customer>(_context);
+            _context = new OrderDbContext(); //get database connection
+            _CustomerRepository = new EfRepository<Customer>(_context); // pass to repository process test method
+            _customerService = new CustomerService(_CustomerRepository); // then pass to customerService layer
         }
 
         // GET: Customer
@@ -44,13 +43,8 @@ namespace OrderManagementSystem.UI.Controllers
 
 
         public ActionResult GetStates()
-        {
-            var o = new { Val = 1, Text = "NSW" };
-            var o1 = new { Val = 2, Text = "VIC" };
-            var o2 = new { Val = 3, Text = "TAS" };
-            var o3 = new { Val = 4, Text = "WA" };
-            var o4 = new { Val = 5, Text = "NT" };
-            var states = new[] { o, o1,o2,o3,o4 }.ToList();
+        {  
+            var states = _context.Staties.ToList();
             return Json(states, JsonRequestBehavior.AllowGet);
         }
 

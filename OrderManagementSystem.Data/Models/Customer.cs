@@ -17,5 +17,6 @@ namespace OrderManagementSystem.Data.Models
         //public string Password { get; set; }
 
         //public Person Person { get; set; }
+        //public States States { get; set; }
     }
 }

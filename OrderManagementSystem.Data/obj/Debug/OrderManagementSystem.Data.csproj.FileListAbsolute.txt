@@ -126,3 +126,7 @@ C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderM
 C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\SharpRepository.EfRepository.dll
 C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\SharpRepository.Repository.dll
 C:\Users\user\Documents\Visual Studio 2015\Projects\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\SharpRepository.EfRepository.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\bin\Debug\SharpRepository.Repository.dll
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.changeshorttoint.resources
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.addstateTable.resources

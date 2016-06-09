@@ -10,12 +10,6 @@ namespace OrderManagementSystem.Service.Order
 {
     public class CustomerService
     {
-        //private OrderDbContext _context;
-
-        //public CustomerService(OrderDbContext context)
-        //{
-        //    _context = context;
-        //}
 
         private IRepository<Customer> _customerRepository;
 
@@ -23,37 +17,13 @@ namespace OrderManagementSystem.Service.Order
         {
             _customerRepository = context;
         }
-        //public Customer CreateUser(string customerCode, string password)
-        //{
-        //    var customer = new Customer()
-        //    {
-        //        //CustomerCode = customerCode,
-        //        //Password = password
-        //    };
-
-        //    var result = _customerRepository.Customers.FirstOrDefault(
-        //        c => c.CustomerCode == customerCode);
-        //    if (result != null)
-        //    {
-        //        throw new InvalidOperationException(
-        //            String.Format("{0} already exists!", customerCode));
-        //    }
-        //    _customerRepository.Add(customer);
-        //    //_context.SaveChanges();
-        //    return customer;
-        //}
-        //public void InsertCustomer(Customer customer)
-        //{
-        //    _context.Customers.Add(customer);
-        //    _context.SaveChanges();
-        //}
+       
         public Customer CreateCustomer(string customerCode, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
             string gender = null, string phoneNo = null, string streetAddress = null,string postCode=null, string suburb = null, string state =null)
         {
             var customer = new Customer()
             {
                 CustomerCode = customerCode,
-                
                 DateOfBirth = dateofBirth,
                 FirstName = firstName,
                 LastName = lastName,

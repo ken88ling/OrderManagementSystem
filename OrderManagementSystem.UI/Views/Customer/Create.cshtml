@@ -63,7 +63,7 @@
            {               
                new SelectListItem { Text ="Female",Value="Female"},
                new SelectListItem { Text ="Male",Value="Male"}               
-           }, "Please select a genre...", new { @class = "form-control" })
+           }, "Please select a Gender...", new { @class = "form-control" })
 
                 @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
             </div>
@@ -96,7 +96,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" id="stateList">
-                
+            @*<div class="col-md-10">*@
+                @*@Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -114,7 +115,7 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-    </div>
+</div>
 }
 
 <div>
@@ -131,10 +132,11 @@
                     $.get("/Customer/GetStates",
                         null,
                         function(statesFromDB) {
-                            var select = $("<select></select>").attr("name", "State").attr("class","form-control");
-                            $.each(statesFromDB, function (index, json) {
-                                select.append($("<option></option>").attr("value", json.Val).text(json.Text));
-                            });
+                            var select = $("<select></select>").attr("name", "State").attr("class", "form-control");
+                            $.each(statesFromDB,
+                                function(index, json) {
+                                    select.append($("<option></option>").attr("value", json.Id).text(json.StateName));
+                                });
                             $("#stateList").html(select);
                         });
 
@@ -143,6 +145,4 @@
 
 
     </script>
-
-
 }

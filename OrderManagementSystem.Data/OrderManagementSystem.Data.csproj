@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201606072342347_changeshorttoint.Designer.cs">
       <DependentUpon>201606072342347_changeshorttoint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606091300145_addstateTable.cs" />
+    <Compile Include="Migrations\201606091300145_addstateTable.Designer.cs">
+      <DependentUpon>201606091300145_addstateTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
@@ -114,6 +118,7 @@
     <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\SaleLineItem.cs" />
+    <Compile Include="Models\States.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -138,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606072342347_changeshorttoint.resx">
       <DependentUpon>201606072342347_changeshorttoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606091300145_addstateTable.resx">
+      <DependentUpon>201606091300145_addstateTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
