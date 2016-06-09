@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using OrderManagementSystem.Service.Order;
 using OrderManagementSystem.UI.ViewModels.Customer;
 using System.Net;
+using SharpRepository.EfRepository;
 
 namespace OrderManagementSystem.UI.Controllers
 {
@@ -15,15 +16,20 @@ namespace OrderManagementSystem.UI.Controllers
         private OrderDbContext _context;
         private CustomerService _customerService;
 
+        protected EfRepository<Customer> _CustomerRepository;
+
         public CustomerController()
         {
             _context = new OrderDbContext();
-            _customerService = new CustomerService(_context);
+            //_customerService = new CustomerService(_context);
+            //_customerService = new CustomerService(_context);
+            _CustomerRepository = new EfRepository<Customer>(_context);
         }
+
         // GET: Customer
         public ActionResult Index()
         {
-            var model = _context.Customers
+            var model = _CustomerRepository.AsQueryable().ToList()
                 .Select(c => new CustomerIndexViewModel()
                 {
                     Id = c.Id,

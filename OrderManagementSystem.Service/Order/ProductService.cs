@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OrderManagementSystem.Data.Models;
+using SharpRepository.Repository;
 
 namespace OrderManagementSystem.Service.Order
 {
     public class ProductService
     {
-        private readonly OrderDbContext _context;
-        public ProductService(OrderDbContext context)
+        //private readonly OrderDbContext _context;
+        private IRepository<Product> _productRepository;
+
+        public ProductService(IRepository<Product> context)
         {
-            _context = context;
+            _productRepository = context;
         }
 
         public Product CreateProduct(int categoryId, string productName, string description, decimal cost,decimal price, int vendorId)
@@ -27,15 +30,15 @@ namespace OrderManagementSystem.Service.Order
                 VendorId = vendorId
             };
 
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            _productRepository.Add(product);
+            //_context.SaveChanges();
 
             return product;
         }
 
         public Product UpdateProduct(int productId, int categoryId, string productName, string description, decimal price, int vendorId)
         {
-            var product = _context.Products.Find(productId);
+            var product = _productRepository.Get(productId);
             product.CategoryId = categoryId;
             product.ProductName = productName;
             product.Description = description;
@@ -47,9 +50,9 @@ namespace OrderManagementSystem.Service.Order
 
         public void DeleteProduct(int productId)
         {
-            var product = _context.Products.Find(productId);
-            _context.Products.Remove(product);
-            _context.SaveChanges();
+            var product = _productRepository.Get(productId);
+            _productRepository.Delete(product);
+            //_context.SaveChanges();
         }
     }
 }

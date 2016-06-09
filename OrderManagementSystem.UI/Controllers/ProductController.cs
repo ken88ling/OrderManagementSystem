@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using OrderManagementSystem.Data.Models;
 using OrderManagementSystem.Service.Order;
 using OrderManagementSystem.UI.ViewModels.Product;
+using SharpRepository.EfRepository;
 
 namespace OrderManagementSystem.UI.Controllers
 {
@@ -17,16 +18,21 @@ namespace OrderManagementSystem.UI.Controllers
         private OrderDbContext db;
         private ProductService productService;
 
+        protected EfRepository<Product> _ProductRepository;
+
         public ProductController()
         {
             db = new OrderDbContext();
-            productService = new ProductService(db);
+            
+            _ProductRepository = new EfRepository<Product>(db);
+            productService = new ProductService(_ProductRepository);
         }
 
         // GET: Product
         public ActionResult Index()
         {
-            var model = db.Products.Select(p => new ProductIndexViewModel()
+            var model = _ProductRepository.AsQueryable()//add to repository first
+                .Select(p => new ProductIndexViewModel()
             {
                 ProductId = p.Id,
                 CategoryName = p.Category.Description,
