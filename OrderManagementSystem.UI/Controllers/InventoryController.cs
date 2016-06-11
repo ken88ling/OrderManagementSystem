@@ -18,7 +18,7 @@ namespace OrderManagementSystem.UI.Controllers
         
         // GET: Inventory
         public ActionResult Index()
-        {   
+        {
             var model = db.Inventories
                 .Include(a => a.SaleLineItem)
                 .Select(p => new InventoryIndexMV()
@@ -27,10 +27,10 @@ namespace OrderManagementSystem.UI.Controllers
                     ProductId = p.ProductId,
                     InitialQTY = p.InitialQTY,
                     CurrentQuantity = p.Product.CurrentQTY,
-                    ProductName=p.Product.ProductName
+                    ProductName = p.Product.ProductName
                 });
 
-            return View(model.ToList()); 
+            return View(model); 
         }
         
         [HttpPost]
@@ -123,16 +123,19 @@ namespace OrderManagementSystem.UI.Controllers
                 db.SaveChanges();
 
                 // add qty to product table
-                var addQTY = db.Products.FirstOrDefault(p => p.Id == inventory.ProductId);
-                if (addQTY != null)
+                var product = db.Products.FirstOrDefault(p => p.Id == inventory.ProductId);
+                if (product != null)
                 {
-                    addQTY.CurrentQTY += inventory.InitialQTY;
+                    product.CurrentQTY += inventory.InitialQTY;
                 }
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            return View(inventory);
+
+            var model = new InventoryCreateVM();
+            return View(model);
+
         }
 
         // GET: Inventory/Edit/5

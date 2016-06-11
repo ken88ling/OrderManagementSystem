@@ -135,6 +135,6 @@ C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.productId.resources
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.removeProductId_andRemoveInventoryCurrentQTY.resources
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.removeSalelineItemNavigatorfrominventory.resources
-C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.add.resources
 C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.Migrations.update.resources
+C:\Users\YHLIN\Documents\GitHub\OrderManagementSystem\OrderManagementSystem.Data\obj\Debug\OrderManagementSystem.Data.csprojResolveAssemblyReference.cache

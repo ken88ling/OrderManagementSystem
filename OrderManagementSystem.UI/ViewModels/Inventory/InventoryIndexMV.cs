@@ -20,6 +20,8 @@ namespace OrderManagementSystem.UI.ViewModels.Inventory
 
 
         public List<Data.Models.SaleLineItem> SaleLineItems { get; set; }
+        //public List<Data.Models.Product> Products { get; set; }
+
 
         public IGrouping<string, Data.Models.Product> Products;
     }
