@@ -22,7 +22,9 @@ namespace OrderManagementSystem.Service.Order
             sale.CustomerId = customerId;
             sale.PurchaseDate = DateTime.Now;
             sale.PaymentDate = paymentTime;
-            sale.SaleLineItems = saleLineItems;
+
+            sale.SaleLineItems = saleLineItems; // salelineitem add to sale
+
             _context.Sales.Add(sale);
             _context.SaveChanges();
             return sale;

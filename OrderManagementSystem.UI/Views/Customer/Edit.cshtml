@@ -113,17 +113,18 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-<script>
+    <script>
         (function() {
             $(document)
                 .ready(function(event) {
                     $.get("/Customer/GetStates",
                         null,
                         function(statesFromDB) {
-                            var select = $("<select></select>").attr("name", "State").attr("class","form-control");
-                            $.each(statesFromDB, function (index, json) {
-                                select.append($("<option></option>").attr("value", json.Val).text(json.Text));
-                            });
+                            var select = $("<select></select>").attr("name", "State").attr("class", "form-control");
+                            $.each(statesFromDB,
+                                function(index, json) {
+                                    select.append($("<option></option>").attr("value", json.Val).text(json.Text));
+                                });
                             $("#stateEditList").html(select);
                         });
 
@@ -131,5 +132,5 @@
         })();
 
 
-</script>
+    </script>
 }

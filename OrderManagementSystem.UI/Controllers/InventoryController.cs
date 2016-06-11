@@ -7,17 +7,75 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OrderManagementSystem.Data.Models;
+using OrderManagementSystem.UI.ViewModels.Inventory;
+using OrderManagementSystem.UI.ViewModels.Sale;
 
 namespace OrderManagementSystem.UI.Controllers
 {
     public class InventoryController : Controller
     {
         private OrderDbContext db = new OrderDbContext();
-
+        
         // GET: Inventory
         public ActionResult Index()
+        {   
+            var model = db.Inventories
+                .Include(a => a.SaleLineItem)
+                .Select(p => new InventoryIndexMV()
+                {
+                    InventoryId = p.InventoryId,
+                    ProductId = p.ProductId,
+                    InitialQTY = p.InitialQTY,
+                    CurrentQuantity = p.Product.CurrentQTY,
+                    ProductName=p.Product.ProductName
+                });
+
+            return View(model.ToList()); 
+        }
+        
+        [HttpPost]
+        public ActionResult Index(string searchTerm)
         {
-            return View(db.Inventories.ToList());
+            var model = db.Inventories
+             .Include(a => a.SaleLineItem)
+             .Select(p => new InventoryIndexMV()
+             {
+                 InventoryId = p.InventoryId,
+                 ProductId = p.ProductId,
+                 InitialQTY = p.InitialQTY,
+                 CurrentQuantity = p.Product.CurrentQTY,
+                 ProductName = p.Product.ProductName
+             });
+
+            List<InventoryIndexMV> inventories;
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                inventories = model.ToList();
+            }
+            else
+            {
+                inventories = model.Where(x => x.ProductName.StartsWith(searchTerm)).ToList();
+            }
+            return View(inventories);
+        }
+
+        public JsonResult GetProductByName(string term) // the term is fix by jquery
+        {
+            var model = db.Inventories
+            .Include(a => a.SaleLineItem)
+            .Select(p => new InventoryIndexMV()
+            {
+                InventoryId = p.InventoryId,
+                ProductId = p.ProductId,
+                InitialQTY = p.InitialQTY,
+                CurrentQuantity = p.Product.CurrentQTY,
+                ProductName = p.Product.ProductName
+            });
+
+            List<string> inventories = model.Where(x => x.ProductName.Contains(term))
+                .Select(y => y.ProductName).ToList();
+
+            return Json(inventories, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Inventory/Details/5
@@ -38,23 +96,42 @@ namespace OrderManagementSystem.UI.Controllers
         // GET: Inventory/Create
         public ActionResult Create()
         {
-            return View();
+            var product = db.Products.Select(s => new InventoryCreateVM()
+            {
+                ProductId = s.Id,
+                ProductName = s.ProductName
+            });
+
+
+            var model = new InventoryCreateVM();
+            model.ProductSelectList = new SelectList(product, "ProductId", "ProductName");
+            return View(model);
         }
 
-        // POST: Inventory/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //public JsonResult AutocompleteSuggestions(string term)
+        //{
+        //    var suggestions = db.GetAutoCompleteSearchSuggestion(term);
+        //}
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InventoryId,ProductId,InitialQTY,SafetyLevel,CurrentQTY")] Inventory inventory)
+        public ActionResult Create(Inventory inventory)
         {
             if (ModelState.IsValid)
             {
                 db.Inventories.Add(inventory);
                 db.SaveChanges();
+
+                // add qty to product table
+                var addQTY = db.Products.FirstOrDefault(p => p.Id == inventory.ProductId);
+                if (addQTY != null)
+                {
+                    addQTY.CurrentQTY += inventory.InitialQTY;
+                }
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-
             return View(inventory);
         }
 
@@ -74,11 +151,9 @@ namespace OrderManagementSystem.UI.Controllers
         }
 
         // POST: Inventory/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InventoryId,ProductId,InitialQTY,SafetyLevel,CurrentQTY")] Inventory inventory)
+        public ActionResult Edit(Inventory inventory)
         {
             if (ModelState.IsValid)
             {

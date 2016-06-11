@@ -10,8 +10,17 @@ namespace OrderManagementSystem.UI.ViewModels.Inventory
 
     public class InventoryIndexMV
     {
-        //public virtual ICollection<Data.Models.Sale> SaleList { get; set; }
-        //public virtual ICollection<Data.Models.SaleLineItem> SaleLineItemList { get; set; }
+        
+        public int InventoryId { get; set; }
+        public int InitialQTY { get; set; }
+        public int SafetyLevel { get; set; }
+        public int CurrentQuantity { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+
+
+        public List<Data.Models.SaleLineItem> SaleLineItems { get; set; }
+
         public IGrouping<string, Data.Models.Product> Products;
     }
 }

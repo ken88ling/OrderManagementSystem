@@ -20,7 +20,7 @@ namespace OrderManagementSystem.UI.Controllers
         private SaleService _saleApplicationService;
         private static List<Product> items = new List<Product>();
         private static List<SaleLineItemCreateViewModel> sales = new List<SaleLineItemCreateViewModel>();
-        
+
 
         public SaleController()
         {
@@ -147,7 +147,6 @@ namespace OrderManagementSystem.UI.Controllers
 
         // POST: Sale/Create
         [HttpPost]
-       // [ValidateAntiForgeryToken]
         public ActionResult Create(SaleCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -169,7 +168,20 @@ namespace OrderManagementSystem.UI.Controllers
                         list.Add(saleLineItem);
                     }
 
-                  _saleApplicationService.CreateSale(model.CustomerId, model.PaymentDate, list);
+                    _saleApplicationService.CreateSale(model.CustomerId, model.PaymentDate, list);
+
+                    // reduce qty from product table
+                    foreach (var product1 in list)
+                    {
+                        var productqty = _context.Products.FirstOrDefault(p => p.Id == product1.ProductId);
+                        if (productqty != null)
+                        {
+                            productqty.CurrentQTY -= product1.Quantity;
+                            _context.SaveChanges();
+                        }
+                        
+                    }
+
                     sales = null;
                     return RedirectToAction("Index");
                 }
@@ -179,11 +191,26 @@ namespace OrderManagementSystem.UI.Controllers
                 }
             }
 
-            var customer = _context.Customers.ToList();
-            var product = _context.Products.ToList();
+            var customer = _context.Customers
+                .Select(s => new SaleCreateViewModel()
+                {
+                    CustomerId = s.Id,
+                    CustomerFullName = s.FirstName + " " + s.LastName
+                });
 
-            model.CustomerSelectList = new SelectList(customer, "Id", "FirstName");
-            model.ProductSelectList = new SelectList(product, "Id", "Name");
+            var product = _context.Products
+                .Select(s => new SaleCreateViewModel()
+                {
+                    Productindex = s.Id,
+                    ProductName = s.ProductName,
+                    ProductFullDetail = s.ProductName + " , $" + s.Price
+                }).ToList();
+
+            //model.CustomerSelectList = new SelectList(customer, "Id", "FirstName");
+            //model.ProductSelectList = new SelectList(product, "Id", "Name");
+
+            model.CustomerSelectList = new SelectList(customer, "CustomerId", "CustomerFullName");
+            model.ProductSelectList = new SelectList(product, "Productindex", "ProductName");
 
             return View(model);
         }

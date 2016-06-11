@@ -22,7 +22,11 @@ namespace OrderManagementSystem.Data.Models
         public decimal? Price { get; set; }
         
         public int VendorId { get; set; }
-        
+
+        public int CurrentQTY { get; set; }
+
+
+
         
         //supplier
         public Vendor Vendor { get; set; }

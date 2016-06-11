@@ -105,6 +105,34 @@
     <Compile Include="Migrations\201606091300145_addstateTable.Designer.cs">
       <DependentUpon>201606091300145_addstateTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606100821033_aa.cs" />
+    <Compile Include="Migrations\201606100821033_aa.Designer.cs">
+      <DependentUpon>201606100821033_aa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606100945506_chang3.cs" />
+    <Compile Include="Migrations\201606100945506_chang3.Designer.cs">
+      <DependentUpon>201606100945506_chang3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606101012253_productId.cs" />
+    <Compile Include="Migrations\201606101012253_productId.Designer.cs">
+      <DependentUpon>201606101012253_productId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606101236084_removeProductId_andRemoveInventoryCurrentQTY.cs" />
+    <Compile Include="Migrations\201606101236084_removeProductId_andRemoveInventoryCurrentQTY.Designer.cs">
+      <DependentUpon>201606101236084_removeProductId_andRemoveInventoryCurrentQTY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606101245279_removeSalelineItemNavigatorfrominventory.cs" />
+    <Compile Include="Migrations\201606101245279_removeSalelineItemNavigatorfrominventory.Designer.cs">
+      <DependentUpon>201606101245279_removeSalelineItemNavigatorfrominventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606101403361_add.cs" />
+    <Compile Include="Migrations\201606101403361_add.Designer.cs">
+      <DependentUpon>201606101403361_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606101508374_update.cs" />
+    <Compile Include="Migrations\201606101508374_update.Designer.cs">
+      <DependentUpon>201606101508374_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
@@ -146,6 +174,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606091300145_addstateTable.resx">
       <DependentUpon>201606091300145_addstateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606100821033_aa.resx">
+      <DependentUpon>201606100821033_aa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606100945506_chang3.resx">
+      <DependentUpon>201606100945506_chang3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606101012253_productId.resx">
+      <DependentUpon>201606101012253_productId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606101236084_removeProductId_andRemoveInventoryCurrentQTY.resx">
+      <DependentUpon>201606101236084_removeProductId_andRemoveInventoryCurrentQTY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606101245279_removeSalelineItemNavigatorfrominventory.resx">
+      <DependentUpon>201606101245279_removeSalelineItemNavigatorfrominventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606101403361_add.resx">
+      <DependentUpon>201606101403361_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606101508374_update.resx">
+      <DependentUpon>201606101508374_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
