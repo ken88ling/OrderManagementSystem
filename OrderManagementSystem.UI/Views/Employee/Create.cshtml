@@ -131,4 +131,13 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    (function () {
+        $(document)
+            .ready(function () {
+                $('#EmployeeNo').focus();
+            });
+    });
+    </script>
+    
 }
