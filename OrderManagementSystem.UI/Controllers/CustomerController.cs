@@ -58,22 +58,25 @@ namespace OrderManagementSystem.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CustomerCreateViewModel model)
         {
+            var m = new Customer()
+            {
+                CustomerCode = model.CustomerCode,
+                State = model.State,
+                StreetAddress = model.StreetAddress,
+                PostCode = model.PostCode,
+                DateOfBirth = model.DateOfBirth,
+                FirstName = model.FirstName,
+                PhoneNo = model.PhoneNo,
+                Suburb = model.Suburb,
+                MiddleName = model.MiddleName,
+                Gender = model.Gender,
+                LastName = model.LastName
+            };
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _customerService.CreateCustomer(
-                       model.CustomerCode,
-                       model.DateOfBirth,
-                       model.FirstName,
-                       model.LastName,
-                       model.MiddleName,
-                       model.Gender,
-                       model.PhoneNo,
-                       model.StreetAddress,
-                       model.PostCode,
-                       model.Suburb,
-                       model.State);
+                    _customerService.CreateCustomer(m);
 
                     return RedirectToAction("Index");
                 }

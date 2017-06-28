@@ -18,50 +18,23 @@ namespace OrderManagementSystem.Service.Order
             _customerRepository = context;
         }
 
-        //public Customer CreateCustomer(string customerCode, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
-        //    string gender = null, string phoneNo = null, string streetAddress = null,string postCode=null, string suburb = null, string state =null)
-        //{
-        //    var customer = new Customer()
-        //    {
-        //        CustomerCode = customerCode,
-        //        DateOfBirth = dateofBirth,
-        //        FirstName = firstName,
-        //        LastName = lastName,
-        //        MiddleName = middleName,
-        //        Gender = gender,
-        //        PhoneNo = phoneNo,
-        //        StreetAddress = streetAddress,
-        //        PostCode = postCode,
-        //        Suburb = suburb,
-        //        State = state
+        
 
-        //    };
-
-
-        //    if (customer == null)
-        //    {
-        //        throw new InvalidOperationException("No customer with provided id was found");
-        //    }
-        //    _customerRepository.Add(customer);
-        //    return customer;
-        //}
-
-        public Customer CreateCustomer(string customerCode, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
-            string gender = null, string phoneNo = null, string streetAddress = null, string postCode = null, string suburb = null, string state = null)
+        public Customer CreateCustomer(Customer model)
         {
             var customer = new Customer()
             {
-                CustomerCode = customerCode,
-                DateOfBirth = dateofBirth,
-                FirstName = firstName,
-                LastName = lastName,
-                MiddleName = middleName,
-                Gender = gender,
-                PhoneNo = phoneNo,
-                StreetAddress = streetAddress,
-                PostCode = postCode,
-                Suburb = suburb,
-                State = state
+                CustomerCode = model.CustomerCode,
+                DateOfBirth =model.DateOfBirth,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                MiddleName = model.MiddleName,
+                Gender = model.Gender,
+                PhoneNo = model.PhoneNo,
+                StreetAddress = model.StreetAddress,
+                PostCode = model.PostCode,
+                Suburb = model.Suburb,
+                State = model.State
 
             };
 
