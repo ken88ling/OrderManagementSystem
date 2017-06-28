@@ -11,15 +11,43 @@ namespace OrderManagementSystem.Service.Order
     public class CustomerService
     {
 
-        private IRepository<Customer> _customerRepository;
+        private readonly IRepository<Customer> _customerRepository;
 
         public CustomerService(IRepository<Customer> context)
         {
             _customerRepository = context;
         }
-       
+
+        //public Customer CreateCustomer(string customerCode, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
+        //    string gender = null, string phoneNo = null, string streetAddress = null,string postCode=null, string suburb = null, string state =null)
+        //{
+        //    var customer = new Customer()
+        //    {
+        //        CustomerCode = customerCode,
+        //        DateOfBirth = dateofBirth,
+        //        FirstName = firstName,
+        //        LastName = lastName,
+        //        MiddleName = middleName,
+        //        Gender = gender,
+        //        PhoneNo = phoneNo,
+        //        StreetAddress = streetAddress,
+        //        PostCode = postCode,
+        //        Suburb = suburb,
+        //        State = state
+
+        //    };
+
+
+        //    if (customer == null)
+        //    {
+        //        throw new InvalidOperationException("No customer with provided id was found");
+        //    }
+        //    _customerRepository.Add(customer);
+        //    return customer;
+        //}
+
         public Customer CreateCustomer(string customerCode, DateTime? dateofBirth, string firstName = null, string lastName = null, string middleName = null,
-            string gender = null, string phoneNo = null, string streetAddress = null,string postCode=null, string suburb = null, string state =null)
+            string gender = null, string phoneNo = null, string streetAddress = null, string postCode = null, string suburb = null, string state = null)
         {
             var customer = new Customer()
             {
@@ -34,10 +62,10 @@ namespace OrderManagementSystem.Service.Order
                 PostCode = postCode,
                 Suburb = suburb,
                 State = state
-                
+
             };
 
-           
+
             if (customer == null)
             {
                 throw new InvalidOperationException("No customer with provided id was found");
