@@ -31,7 +31,6 @@ namespace OrderManagementSystem.UI.Controllers
         // GET: Sale
         public ActionResult Index()
         {
-            var sale = _context.Sales.ToList();
             var model = _context.Sales.Select(p => new SaleIndexViewModel()
             {
                 Id = p.SaleId,
