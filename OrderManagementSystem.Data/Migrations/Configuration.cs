@@ -1,3 +1,5 @@
+using OrderManagementSystem.Data.Models;
+
 namespace OrderManagementSystem.Data.Migrations
 {
     using System;
@@ -26,6 +28,32 @@ namespace OrderManagementSystem.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            if (context.Customers.Any())
+            {
+                return;;
+            }
+            else
+            {
+                for (int i = 0; i < 1000; i++)
+                {
+                    var customer = new Customer()
+                    {
+                        CustomerCode = "Code " + i,
+                        DateOfBirth = DateTime.Now.Date.AddDays(-i),
+                        FirstName = "First Name " + i,
+                        LastName = "Last Name" + i,
+                        Gender = i % 2 == 0 ? "Male" : "Female",
+                        MiddleName = "Middle Name " + i,
+                        PhoneNo = "Phone " + i,
+                        PostCode = "Post code " + i,
+                        State = "State " + i,
+                        StreetAddress = "Street Address " + i,
+                        Suburb = "Suburb " + i
+                    };
+
+                }
+            }
         }
     }
 }

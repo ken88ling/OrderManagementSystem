@@ -37,9 +37,9 @@ namespace OrderManagementSystem.Test
             };
 
             //Exercise the SUT (system under test)
-            customerService.CreateCustomer(expected.CustomerCode, expected.DateOfBirth, expected.FirstName,
-                expected.LastName, expected.MiddleName, expected.Gender, expected.PhoneNo, expected.StreetAddress,
-                expected.PostCode, expected.Suburb, expected.State);
+            //customerService.CreateCustomer(expected.CustomerCode, expected.DateOfBirth, expected.FirstName,
+            //    expected.LastName, expected.MiddleName, expected.Gender, expected.PhoneNo, expected.StreetAddress,
+            //    expected.PostCode, expected.Suburb, expected.State);
 
             // State Verification
             var actual = customerRepo.AsQueryable().FirstOrDefault();

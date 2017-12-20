@@ -35,7 +35,6 @@ namespace OrderManagementSystem.Service.Order
                 PostCode = model.PostCode,
                 Suburb = model.Suburb,
                 State = model.State
-
             };
 
 
